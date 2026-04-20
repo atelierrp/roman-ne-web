@@ -32,7 +32,7 @@ npm run preview
 
 ## Composable blocks
 
-Tokens live in [`src/styles/global.css`](src/styles/global.css): `--page-padding-inline`, `--block-margin-after-images`, `--block-margin-after-divider` (⅓ of image margin), `--block-margin-after-header-text`, `--hero-contained-max-width`, `--row-image-max-height`, `--image-row-gap`. Horizontal padding is only on [`.page-frame`](src/layouts/BaseLayout.astro); blocks stay flush to that width.
+Tokens live in [`src/styles/global.css`](src/styles/global.css): `--space-unit` scales vertical rhythm; `--block-margin-after-images` (40× unit by default); derived gaps (e.g. divider title = ⅕ of that, header text = ⅛); `--page-padding-inline`, `--hero-contained-max-width`, `--row-image-max-height`, `--image-row-gap`. Horizontal padding is only on [`.page-frame`](src/layouts/BaseLayout.astro); blocks stay flush to that width.
 
 [`src/components/BlockStack.astro`](src/components/BlockStack.astro) maps `block.type` to:
 
@@ -40,7 +40,7 @@ Tokens live in [`src/styles/global.css`](src/styles/global.css): `--page-padding
 |------|-----------|--------|
 | `hero` | [`Hero.astro`](src/components/blocks/Hero.astro) | `variant`, optional `header`, `src` / `alt` / `caption`, optional `aspectRatio` (default `16 / 9`) to reserve space before load. |
 | `imageRow` | [`ImageRow.astro`](src/components/blocks/ImageRow.astro) | Optional `header`. `images[]`: `src`, `alt`, optional `orientation` (`vertical` \| `portrait` \| `horizontal`), optional `aspectRatio` override, optional `width` / `height` (intrinsic hints). Defaults: `16 / 9` landscape, `2 / 3` portrait. |
-| `textBlock` | [`Divider.astro`](src/components/blocks/Divider.astro) | `lines[]`, optional `links[]`, optional `kind`: `"title"` (default, bottom margin = ⅓ of image block) or `"text"` (full `--block-margin-after-images`). |
+| `textBlock` | [`Divider.astro`](src/components/blocks/Divider.astro) | `lines[]`, optional `links[]`, optional `kind`: `"title"` (default, bottom margin = ⅕ of large block gap) or `"text"` (full `--block-margin-after-images`). |
 | `prose` | [`Prose.astro`](src/components/blocks/Prose.astro) | Simple paragraphs (legacy). |
 
 **Legacy aliases** (still supported): `divider` → same as `textBlock`; `imageWide` → hero; `imagePairTall` → two vertical `imageRow` cells; `sectionTitle` → text block lines.

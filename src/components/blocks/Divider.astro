@@ -1,9 +1,9 @@
 ---
 /**
  * Text block (divider): `textType` (or legacy `kind`) — "header" | "title" | "text"
- * - header → margin-bottom var(--block-margin-after-divider-header)
- * - title → var(--block-margin-after-divider)
- * - text → stack default (var(--block-margin-after-images))
+ * - header → margin-bottom var(--block-margin-after-divider-header) (¹⁄₁₀ large gap)
+ * - title → var(--block-margin-after-divider) (⅕ large gap)
+ * - text → stack default (var(--block-margin-after-images); 40× --space-unit)
  *
  * links: { label, href, external?, variant?: "default" | "plain" } |
  *   { type: "modal", modalKind, ... } — modalKind includes "bandcamp" + bandcampSrc (EmbeddedPlayer URL)

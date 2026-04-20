@@ -1,5 +1,10 @@
 /*
   Layout tokens — tune here; blocks stay flush horizontally (no side padding).
+
+  Vertical rhythm: --space-unit is the base step (default 0.15rem). Most gaps are
+  N×--space-unit or fractions of --block-margin-after-images (40× unit) so one
+  knob scales the stack: change --space-unit, or only --block-margin-after-images
+  via calc(40 * var(--space-unit)).
 */
 
 @font-face {
@@ -29,43 +34,55 @@
   /* Derived vertical step so nav/category spacing matches line rhythm */
   --line-gap-body: calc((var(--line-height-body) - 1) * 1em);
 
-  --page-padding-inline: 0.5rem;
+  /* Base vertical step; 40× = “large” gap between blocks / image sections */
+  --space-unit: 0.15rem;
+  /* Named steps (N × --space-unit) for ad-hoc use */
+  --space-4: calc(4 * var(--space-unit));
+  --space-5: calc(5 * var(--space-unit));
+  --space-6: calc(6 * var(--space-unit));
+  --space-7: calc(7 * var(--space-unit));
+  --space-8: calc(8 * var(--space-unit));
+  --space-10: calc(10 * var(--space-unit));
+  --space-12: calc(12 * var(--space-unit));
+  --space-20: calc(20 * var(--space-unit));
+  --space-40: calc(40 * var(--space-unit));
+
+  /* Vertical rhythm: default large gap between stacked blocks & under image rows */
+  --block-margin-after-images: var(--space-40);
+  /* Section labels (divider title): ⅕ of large gap */
+  --block-margin-after-divider: calc(var(--space-10));
+  /* Divider “header” kind: ¹⁄₁₀ of large gap */
+  --block-margin-after-divider-header: calc(var(--space-4));
+  /* Space below block headers / titles before media or body (hero, image row, CV): ⅛ of large gap */
+  --block-margin-after-header-text: calc(var(--block-margin-after-images) / 8);
+  /* Gutters inside image grids; link rows in divider/hero */
+  --image-row-gap: var(--block-margin-after-header-text);
+  --space-inline-gap: var(--block-margin-after-header-text);
+
+  --page-padding-inline: calc(var(--block-margin-after-images) / 12);
   --page-padding-bottom: 0rem;
-  /* Space below fixed nav before main content (in addition to nav clearance) */
+  /* Space below fixed nav before main content (in addition to nav clearance); px = fixed offset */
   --page-content-padding-top: 24px;
 
   /* Bio two-column layout (bio.astro); matches BlockStack gap between blocks (line-gap is 0 at lh 1) */
   --bio-layout-max-width: 1400px;
-  --bio-column-gap: 2rem;
+  --bio-column-gap: calc(var(--block-margin-after-images) / 3);
   --bio-row-gap: var(--block-margin-after-images);
 
   /* CV (cvSection): space after whole section vs between year blocks */
   --cv-section-margin-bottom: var(--block-margin-after-images);
-  --cv-year-block-margin-bottom: 1rem;
-
-  /* Vertical rhythm: shared under image rows & hero (after the block) */
-  --block-margin-after-images: 6rem;
-
-  /* Divider / section label spacing (1/3 of image block margin) */
-  --block-margin-after-divider: 1.2rem;
-  /* Divider textType "header" — tight space before following body copy */
-  --block-margin-after-divider-header: 0.6rem;
-
-  /* Space below header text before images (hero + image row) */
-  --block-margin-after-header-text: 0.75rem;
+  --cv-year-block-margin-bottom: calc(20 / 3 * var(--space-unit));
 
   /* Hero when variant is "contained" */
   --hero-contained-max-width: 46rem;
   /* Home: tight inset below nav + around video (fits viewport, no scroll) */
-  --home-page-content-padding-top: 0.25rem;
-  --home-video-padding: 0.25rem;
+  --home-page-content-padding-top: calc(5 / 3 * var(--space-unit));
+  --home-video-padding: calc(5 / 3 * var(--space-unit));
 
   /* Portrait images in a row */
   --row-image-max-height: min(85vh, 40rem);
 
-  /* Gutters between images in a row */
-  --image-row-gap: 0.75rem;
-  /* Portrait pair: horizontal gap (defaults to row gap); grid is max-content, left-aligned */
+  /* Portrait pair: vertical gap between stacked rows (horizontal gap uses --image-row-gap) */
   --image-row-vertical-gap: var(--image-row-gap);
 
   /* Subpage nav: open menu dims main content */
@@ -83,12 +100,12 @@
   /* Fixed top nav: reserved height for one-line bar + safe area */
   --site-nav-fixed-clearance: calc(env(safe-area-inset-top, 0px) + 2.5rem);
   /* Bar nav: space between “Roman Ne” and the link group; space within the group */
-  --site-nav-parts-gap: 4.4rem;
-  --site-nav-item-gap: 0.6rem;
+  --site-nav-parts-gap: calc(88 / 3 * var(--space-unit));
+  --site-nav-item-gap: var(--block-margin-after-divider-header);
 
-  /* Full-screen media modal: inset around image / video / iframe */
-  --work-modal-padding-block: 4rem;
-  --work-modal-padding-inline: 4rem;
+  /* Full-screen media modal: inset around image / video / iframe (⅔ of large block gap) */
+  --work-modal-padding-block: calc(var(--block-margin-after-images) * 2 / 3);
+  --work-modal-padding-inline: var(--work-modal-padding-block);
   /* Used with max-height so media fits inside padded viewport */
   --work-modal-media-v-offset: calc(
     2 * var(--work-modal-padding-block)
@@ -260,7 +277,7 @@ li {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: var(--space-inline-gap);
 }
 
 .block--hero__media {
@@ -553,7 +570,7 @@ li {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
+  gap: var(--space-inline-gap);
 }
 
 .external-link--arrow::after {
@@ -1011,6 +1028,5 @@ article.work-entry:last-of-type {
 }
 
 .work-header {
-  /* margin-bottom: calc(var(--page-padding-inline)); */
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--block-margin-after-header-text);
 }
