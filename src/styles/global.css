@@ -32,7 +32,7 @@
   --page-padding-inline: 0.5rem;
   --page-padding-bottom: 0rem;
   /* Space below fixed nav before main content (in addition to nav clearance) */
-  --page-content-padding-top: 0rem;
+  --page-content-padding-top: 24px;
 
   /* Bio two-column layout (bio.astro); matches BlockStack gap between blocks (line-gap is 0 at lh 1) */
   --bio-layout-max-width: 1400px;
@@ -218,7 +218,7 @@ li {
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 .block--cv-year-block__line {
