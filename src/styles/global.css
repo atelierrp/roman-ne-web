@@ -637,6 +637,7 @@ li {
 
 .site-nav-slot {
   font-family: var(--font-family-body);
+  font-family: "Greed Wide Bold", system-ui, sans-serif;
   font-size: inherit;
   line-height: inherit;
   position: fixed;
