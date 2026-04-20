@@ -1,0 +1,25 @@
+---
+/**
+ * CV layout: one section = header + year blocks.
+ * year: optional; when set, shown as a plain line (no extra margin) before entries.
+ */
+const { header = "", yearBlocks = [] } = Astro.props;
+---
+
+<section class="block block--cv-section">
+  <h2 class="block--cv-section__header">{header}</h2>
+  <div class="block--cv-section__body">
+    {
+      yearBlocks.map((yb) => (
+        <div class="block--cv-year-block">
+          {yb.year ? (
+            <p class="block--cv-year-block__year">{yb.year}</p>
+          ) : null}
+          {(yb.lines ?? []).map((line) => (
+            <p class="block--cv-year-block__line">{line}</p>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+/**
+ * lines: string | { parts: Array<string | { text: string; href: string; external?: boolean }> }
+ */
+const { heading, lines = [] } = Astro.props;
+---
+
+<section class="block block--prose">
+  {heading && <h2 class="block__heading">{heading}</h2>}
+  {
+    lines.map((line) =>
+      typeof line === "string" ? (
+        <p class="block__line">{line}</p>
+      ) : line?.parts ? (
+        <p class="block__line">
+          {line.parts.map((part) =>
+            typeof part === "string" ? (
+              part
+            ) : (
+              <a
+                href={part.href}
+                class={part.external ? "external-link--arrow" : undefined}
+                target={part.external ? "_blank" : undefined}
+                rel={part.external ? "noopener noreferrer" : undefined}
+              >
+                {part.text}
+              </a>
+            ),
+          )}
+        </p>
+      ) : null,
+    )
+  }
+</section>

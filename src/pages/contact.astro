@@ -1,0 +1,25 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import "../styles/global.css";
+---
+
+<BaseLayout title="Roman Ne — Contact" description="Contact Roman Ne.">
+  <main class="site-main">
+    <SiteNav activeId="contact" />
+    <div class="site-content site-content--contact" id="site-content">
+      <article>
+        <p>
+          <a href="mailto:contact@roman-ne.com">contact@roman-ne.com</a>
+        </p>
+        <p>
+          <a
+            href="https://www.instagram.com/hardcoreyoganidra"
+            target="_blank"
+            rel="noopener noreferrer">HCYN IG</a
+          >
+        </p>
+      </article>
+    </div>
+  </main>
+</BaseLayout>

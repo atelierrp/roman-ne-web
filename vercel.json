@@ -1,0 +1,11 @@
+{
+  "redirects": [
+    { "source": "/current", "destination": "/hardcoreyoganidra", "permanent": true },
+    { "source": "/home", "destination": "/", "permanent": true },
+    {
+      "source": "/selected-works/:slug",
+      "destination": "/:slug",
+      "permanent": true
+    }
+  ]
+}

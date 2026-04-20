@@ -1,0 +1,36 @@
+---
+/**
+ * Inline control for `SiteMediaModal` (`data-open-site-modal`).
+ */
+const {
+  label,
+  modalKind = "image",
+  youtubeUrl,
+  imageSrc,
+  imageAlt,
+  videoSrc,
+  bandcampSrc,
+  bandcampHeightPx,
+  bandcampTitle,
+  detailHtml,
+} = Astro.props;
+
+const detailEncoded =
+  detailHtml != null && detailHtml !== ""
+    ? encodeURIComponent(String(detailHtml))
+    : "";
+---
+
+<button
+  type="button"
+  class="block--modal__trigger"
+  data-open-site-modal
+  data-modal-kind={modalKind}
+  data-youtube-url={youtubeUrl ?? ""}
+  data-video-src={videoSrc ?? ""}
+  data-image-src={imageSrc ?? ""}
+  data-image-alt={imageAlt ?? ""}
+  data-bandcamp-src={bandcampSrc ?? ""}
+  data-bandcamp-title={bandcampTitle ?? ""}
+  data-bandcamp-height={bandcampHeightPx != null ? String(bandcampHeightPx) : ""}
+  data-detail-html={detailEncoded}>{label}</button>

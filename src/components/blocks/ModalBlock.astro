@@ -1,0 +1,39 @@
+---
+/**
+ * Standalone modal trigger block (same chrome as divider inline modal).
+ * @see ../BlockStack.astro — block.type === "modal"
+ */
+import ModalLinkButton from "./ModalLinkButton.astro";
+
+const {
+  label,
+  modalKind = "image",
+  youtubeUrl,
+  imageSrc,
+  imageAlt,
+  videoSrc,
+  bandcampSrc,
+  bandcampHeightPx,
+  bandcampTitle,
+  detailHtml,
+} = Astro.props;
+---
+
+<section class="block block--modal">
+  <ul class="block--divider__links">
+    <li>
+      <ModalLinkButton
+        label={label}
+        modalKind={modalKind}
+        youtubeUrl={youtubeUrl}
+        imageSrc={imageSrc}
+        imageAlt={imageAlt}
+        videoSrc={videoSrc}
+        bandcampSrc={bandcampSrc}
+        bandcampHeightPx={bandcampHeightPx}
+        bandcampTitle={bandcampTitle}
+        detailHtml={detailHtml}
+      />
+    </li>
+  </ul>
+</section>

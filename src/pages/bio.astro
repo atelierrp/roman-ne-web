@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlockStack from "../components/BlockStack.astro";
+import SiteNav from "../components/SiteNav.astro";
+import SiteMediaModal from "../components/SiteMediaModal.astro";
+import { bioPage } from "../data/bioPage.js";
+import { blocksUseSiteMediaModal } from "../lib/blocksSiteModal.ts";
+import "../styles/global.css";
+
+const blocks = bioPage.blocks;
+const bioNeedsSiteModal = blocksUseSiteMediaModal(blocks);
+const introBlock = blocks[0];
+const imageBlock = blocks[1];
+const asideBlocks = blocks.slice(2);
+---
+
+<BaseLayout title={bioPage.title} description={bioPage.description}>
+  <main class="site-main">
+    <SiteNav activeId="bio" />
+    <div class="site-content" id="site-content">
+      <article class="bio-layout">
+        {
+          introBlock && (
+            <div class="bio-layout__intro">
+              <BlockStack blocks={[introBlock]} embedSiteMediaModal={false} />
+            </div>
+          )
+        }
+        {
+          imageBlock && (
+            <div class="bio-layout__image">
+              <BlockStack blocks={[imageBlock]} embedSiteMediaModal={false} />
+            </div>
+          )
+        }
+        {
+          asideBlocks.length > 0 && (
+            <div class="bio-layout__aside">
+              <BlockStack blocks={asideBlocks} embedSiteMediaModal={false} />
+            </div>
+          )
+        }
+        {bioNeedsSiteModal ? <SiteMediaModal /> : null}
+      </article>
+    </div>
+  </main>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+/**
+ * Primary bar: Roman Ne (home) | Bio, Contact — body font/size; active link via activeId.
+ */
+const { activeId = "" } = Astro.props;
+
+const homeLink = { id: "home", href: "/", label: "Roman Ne" };
+const pageLinks = [
+  { id: "bio", href: "/bio", label: "Bio" },
+  { id: "contact", href: "/contact", label: "Contact" },
+];
+---
+
+<div class="site-nav-slot">
+  <nav class="site-nav site-nav--bar" aria-label="Primary">
+    <ul class="site-nav__list site-nav__list--brand">
+      <li>
+        <a
+          href={homeLink.href}
+          aria-current={activeId === homeLink.id ? "page" : undefined}>{homeLink.label}</a>
+      </li>
+    </ul>
+    <ul class="site-nav__list site-nav__list--pages">
+      {
+        pageLinks.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              aria-current={activeId === l.id ? "page" : undefined}>{l.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>

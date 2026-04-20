@@ -1,0 +1,45 @@
+---
+/**
+ * Natural aspect ratio: no cropping. Optional imgWidth/imgHeight (pixels) for CLS hints.
+ */
+const {
+  src = "",
+  alt = "",
+  caption = "",
+  figureClass = "",
+  emptyLabel = "Image placeholder",
+  imgWidth,
+  imgHeight,
+} = Astro.props;
+---
+
+<figure class:list={["reveal-image", "reveal-image--intrinsic", figureClass]}>
+  {
+    src ? (
+      <>
+        <div class="reveal-image__media">
+          <img
+            class="reveal-image__img"
+            src={src}
+            alt={alt}
+            {...(imgWidth != null ? { width: imgWidth } : {})}
+            {...(imgHeight != null ? { height: imgHeight } : {})}
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+        {caption ? (
+          <figcaption class="reveal-image__caption">{caption}</figcaption>
+        ) : null}
+      </>
+    ) : (
+      <div
+        class="block__placeholder"
+        role="img"
+        aria-label={alt || emptyLabel}
+      >
+        {emptyLabel}
+      </div>
+    )
+  }
+</figure>

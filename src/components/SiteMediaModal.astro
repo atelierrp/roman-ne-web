@@ -1,0 +1,28 @@
+---
+/**
+ * Single shared dialog for optional `data-works-json` (work-list buttons) and
+ * block modals (`data-open-site-modal` / ModalLinkButton).
+ */
+const { worksJson = null } = Astro.props;
+const worksAttr =
+  worksJson != null ? JSON.stringify(worksJson) : undefined;
+---
+
+<dialog
+  id="work-modal"
+  class="work-modal"
+  aria-label="Media"
+  data-works-json={worksAttr}
+>
+  <div class="work-modal__scrim" id="work-modal-scrim">
+    <div id="work-modal-body" class="work-modal__medium"></div>
+  </div>
+  <form class="work-modal__sr-only" method="dialog">
+    <button type="submit">Close</button>
+  </form>
+</dialog>
+
+<script>
+  import { attachSiteMediaModal } from "../lib/siteMediaModal.ts";
+  attachSiteMediaModal();
+</script>

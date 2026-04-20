@@ -1,0 +1,24 @@
+---
+/**
+ * Inline anchor shared by blocks.
+ * `variant="plain"` — no underline; hover feedback is pointer only (see `.site-link--plain`).
+ * Default — context supplies underline where needed; `external` adds ↗ via `.external-link--arrow`.
+ */
+const { href, label, external = false, variant = "default" } = Astro.props;
+const isPlain = variant === "plain";
+
+const externalAttrs = external
+  ? { target: "_blank" as const, rel: "noopener noreferrer" as const }
+  : {};
+---
+
+<a
+  href={href}
+  class:list={[
+    isPlain && "site-link--plain",
+    !isPlain && external && "external-link--arrow",
+  ]}
+  {...externalAttrs}
+>
+  {label}
+</a>

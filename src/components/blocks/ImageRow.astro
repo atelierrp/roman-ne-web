@@ -1,0 +1,59 @@
+---
+import RevealImage from "../RevealImage.astro";
+
+/**
+ * One or more images; portrait/vertical keeps natural width (no stretch to full column).
+ */
+const { header, images = [] } = Astro.props;
+
+const hasHeader =
+  header &&
+  (header.title ||
+    (header.lines && header.lines.length > 0));
+
+const rowCols = Math.max(1, images.length);
+
+const allVertical =
+  images.length > 0 &&
+  images.every(
+    (img) =>
+      img.orientation === "vertical" || img.orientation === "portrait",
+  );
+---
+
+<section class="block block--image-row">
+  {
+    hasHeader && (
+      <div class="block--image-row__header">
+        {header.title && <p class="block--image-row__title">{header.title}</p>}
+        {header.lines?.map((line) => (
+          <p class="block--image-row__line">{line}</p>
+        ))}
+      </div>
+    )
+  }
+  <div
+    class:list={[
+      "block--image-row__grid",
+      allVertical && "block--image-row__grid--vertical-row",
+    ]}
+    style={`--row-cols: ${rowCols}`}
+  >
+    {
+      images.map((img) => {
+        const vertical =
+          img.orientation === "vertical" || img.orientation === "portrait";
+        return (
+          <RevealImage
+            src={img.src ?? ""}
+            alt={img.alt || ""}
+            figureClass={`block--image-row__cell${vertical ? " is-vertical" : ""}`}
+            emptyLabel={`${vertical ? "Portrait" : "Image"} placeholder`}
+            imgWidth={img.width}
+            imgHeight={img.height}
+          />
+        );
+      })
+    }
+  </div>
+</section>

@@ -1,0 +1,136 @@
+---
+/**
+ * Project page blocks:
+ * - hero: full/contained wide media (image | youtube | videoFile), optional header
+ * - imageRow: N images (vertical/horizontal), optional header
+ * - textBlock / divider: lines + optional links; textType (or kind): "header" | "title" | "text"
+ * - prose: simple text (legacy)
+ * - modal: label + modalKind (image | youtube | videoFile | video | bandcamp) — opens shared full-screen modal
+ * - cvSection: header + yearBlocks[{ year?, lines[] }] — CV page only
+ *
+ * Legacy aliases: imageWide → hero full; imagePairTall → imageRow ×2 vertical;
+ * sectionTitle → textBlock lines from title + items
+ */
+import Prose from "./blocks/Prose.astro";
+import Hero from "./blocks/Hero.astro";
+import ImageRow from "./blocks/ImageRow.astro";
+import Divider from "./blocks/Divider.astro";
+import ModalBlock from "./blocks/ModalBlock.astro";
+import CvSection from "./blocks/CvSection.astro";
+import SiteMediaModal from "./SiteMediaModal.astro";
+import {
+  blocksUseSiteMediaModal,
+} from "../lib/blocksSiteModal.ts";
+
+/** Set `embedSiteMediaModal={false}` when the parent page renders `<SiteMediaModal />` once (e.g. bio). */
+const { blocks = [], embedSiteMediaModal = true } = Astro.props;
+
+const needsSiteMediaModal = blocksUseSiteMediaModal(blocks);
+---
+
+<div class="block-stack">
+  {
+    blocks.map((block) => {
+      if (block.type === "prose") {
+        return <Prose heading={block.heading} lines={block.lines} />;
+      }
+      if (block.type === "hero") {
+        return (
+          <Hero
+            variant={block.variant ?? "full"}
+            mediaKind={block.mediaKind ?? "image"}
+            src={block.src}
+            alt={block.alt}
+            caption={block.caption}
+            youtubeUrl={block.youtubeUrl}
+            videoSrc={block.videoSrc}
+            videoPoster={block.videoPoster}
+            header={block.header}
+          />
+        );
+      }
+      if (block.type === "imageRow") {
+        return (
+          <ImageRow header={block.header} images={block.images ?? []} />
+        );
+      }
+      if (block.type === "textBlock" || block.type === "divider") {
+        return (
+          <Divider
+            lines={block.lines ?? []}
+            links={block.links ?? []}
+            textType={block.textType ?? block.kind ?? "title"}
+          />
+        );
+      }
+
+      if (block.type === "cvSection") {
+        return (
+          <CvSection
+            header={block.header ?? ""}
+            yearBlocks={block.yearBlocks ?? []}
+          />
+        );
+      }
+
+      if (block.type === "sectionTitle") {
+        const lines = [
+          block.title,
+          ...(block.items ?? []),
+        ].filter(Boolean);
+        return <Divider lines={lines} links={[]} textType="title" />;
+      }
+      if (block.type === "imagePairTall") {
+        return (
+          <ImageRow
+            images={[
+              {
+                src: block.left?.src ?? "",
+                alt: block.left?.alt ?? "",
+                orientation: "vertical",
+              },
+              {
+                src: block.right?.src ?? "",
+                alt: block.right?.alt ?? "",
+                orientation: "vertical",
+              },
+            ]}
+          />
+        );
+      }
+      if (block.type === "imageWide") {
+        return (
+          <Hero
+            variant={block.variant ?? "full"}
+            mediaKind={block.mediaKind ?? "image"}
+            src={block.src}
+            alt={block.alt}
+            caption={block.caption}
+            youtubeUrl={block.youtubeUrl}
+            videoSrc={block.videoSrc}
+            videoPoster={block.videoPoster}
+            header={block.header}
+          />
+        );
+      }
+      if (block.type === "modal") {
+        return (
+          <ModalBlock
+            label={block.label}
+            modalKind={block.modalKind}
+            youtubeUrl={block.youtubeUrl}
+            imageSrc={block.imageSrc}
+            imageAlt={block.imageAlt}
+            videoSrc={block.videoSrc}
+            bandcampSrc={block.bandcampSrc}
+            bandcampHeightPx={block.bandcampHeightPx}
+            bandcampTitle={block.bandcampTitle}
+            detailHtml={block.detailHtml}
+          />
+        );
+      }
+      return null;
+    })
+  }
+  {embedSiteMediaModal && needsSiteMediaModal ? <SiteMediaModal /> : null}
+</div>

@@ -1,0 +1,24 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/blocks/Hero.astro";
+import SiteNav from "../components/SiteNav.astro";
+import { currentProject } from "../data/current.js";
+import "../styles/global.css";
+---
+
+<BaseLayout
+  title="Roman Ne — Home"
+  description="Roman Ne — sound, attention, spatial situations."
+>
+  <main class="site-main site-main--home">
+    <SiteNav activeId="home" />
+    <div class="home-video">
+      <Hero
+        variant="contained"
+        mediaKind="youtube"
+        youtubeUrl={currentProject.youtubeUrl}
+        alt="Black Square — hardcore yoga nidra"
+      />
+    </div>
+  </main>
+</BaseLayout>

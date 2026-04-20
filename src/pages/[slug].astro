@@ -1,0 +1,48 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlockStack from "../components/BlockStack.astro";
+import SiteNav from "../components/SiteNav.astro";
+import { getWorkBySlug, getSubpageSlugs } from "../data/works.js";
+import { workDetailPages } from "../data/workDetailPages.js";
+import "../styles/global.css";
+
+export function getStaticPaths() {
+  return getSubpageSlugs().map((slug) => ({ params: { slug } }));
+}
+
+const slug = Astro.params.slug;
+const work = typeof slug === "string" ? getWorkBySlug(slug) : undefined;
+const extra =
+  typeof slug === "string" && workDetailPages[slug]
+    ? workDetailPages[slug]
+    : undefined;
+
+if (!work) {
+  throw new Error(`No work entry for slug: ${slug}`);
+}
+
+const description = extra?.description ?? work.description;
+const blocks = extra?.blocks ?? [];
+---
+
+<BaseLayout title={`Roman Ne — ${work.title}`} description={description}>
+  <main class="site-main">
+    <SiteNav />
+    <div class="site-content" id="site-content">
+      <article>
+        <div class="work-header">
+          <h1>{work.title}</h1>
+          <p>{work.years}</p>
+          <p>{work.description}</p>
+        </div>
+        {
+          blocks.length > 0 ? (
+            <BlockStack blocks={blocks} />
+          ) : (
+            <p>Further content coming soon.</p>
+          )
+        }
+      </article>
+    </div>
+  </main>
+</BaseLayout>

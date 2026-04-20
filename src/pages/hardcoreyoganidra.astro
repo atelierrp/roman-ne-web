@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlockStack from "../components/BlockStack.astro";
+import SiteNav from "../components/SiteNav.astro";
+import { hardcoreyoganidraPage } from "../data/hardcoreyoganidraPage.js";
+import "../styles/global.css";
+---
+
+<BaseLayout
+  title={hardcoreyoganidraPage.title}
+  description={hardcoreyoganidraPage.description}
+>
+  <main class="site-main">
+    <SiteNav />
+    <div class="site-content" id="site-content">
+      <BlockStack blocks={hardcoreyoganidraPage.blocks} />
+    </div>
+  </main>
+</BaseLayout>

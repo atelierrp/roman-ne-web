@@ -1,0 +1,57 @@
+---
+/**
+ * @typedef {{ title: string; description?: string }} Props
+ * @type {Props}
+ */
+const { title, description = "Roman Ne — sound, attention, spatial situations." } =
+  Astro.props;
+const canonicalHref = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site).href
+  : undefined;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      href="/greed/GreedStandard-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      href="/greed/GreedExtended-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    {canonicalHref && <link rel="canonical" href={canonicalHref} />}
+    <slot name="head" />
+  </head>
+  <body>
+    <div class="page-frame">
+      <slot />
+    </div>
+    <script is:inline>
+      (function () {
+        var thresholdPx = 20;
+        function syncNavScroll() {
+          var concealed = window.scrollY > thresholdPx;
+          document.documentElement.toggleAttribute(
+            "data-nav-scroll-concealed",
+            concealed,
+          );
+        }
+        syncNavScroll();
+        window.addEventListener("scroll", syncNavScroll, { passive: true });
+      })();
+    </script>
+  </body>
+</html>

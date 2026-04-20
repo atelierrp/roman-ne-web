@@ -1,0 +1,142 @@
+---
+import RevealImage from "../RevealImage.astro";
+
+/**
+ * Hero: optional header + wide media (image | youtube | mp4 file).
+ * variant "full" = 100% of page frame; "contained" = max-width var.
+ */
+const {
+  variant = "full",
+  mediaKind = "image",
+  src = "",
+  alt = "",
+  caption = "",
+  youtubeUrl = "",
+  videoSrc = "",
+  videoPoster = "",
+  header,
+} = Astro.props;
+
+const hasHeader =
+  header &&
+  (header.title ||
+    (header.lines && header.lines.length > 0) ||
+    (header.links && header.links.length > 0));
+
+/** Query string for /embed/… (everything except `v`, which is the path id). */
+function youtubeEmbedSearchFromUrl(u) {
+  const p = new URLSearchParams(u.search);
+  p.delete("v");
+  const s = p.toString();
+  return s ? `?${s}` : "";
+}
+
+function youtubeEmbedUrl(raw) {
+  if (!raw || typeof raw !== "string") return "";
+  const trimmed = raw.trim();
+  try {
+    const u = new URL(trimmed, "https://www.youtube.com/");
+    const host = u.hostname.replace(/^www\./, "");
+    if (host === "youtu.be") {
+      const id = u.pathname.replace(/^\//, "").split("/")[0];
+      if (!id) return "";
+      const q = youtubeEmbedSearchFromUrl(u);
+      return `https://www.youtube.com/embed/${id}${q}`;
+    }
+    if (host === "youtube.com" || host === "m.youtube.com") {
+      if (u.pathname.startsWith("/embed/")) return trimmed.split("#")[0];
+      const v = u.searchParams.get("v");
+      if (v) {
+        const q = youtubeEmbedSearchFromUrl(u);
+        return `https://www.youtube.com/embed/${v}${q}`;
+      }
+      const shorts = u.pathname.match(/^\/shorts\/([^/?#]+)/);
+      if (shorts) {
+        const q = youtubeEmbedSearchFromUrl(u);
+        return `https://www.youtube.com/embed/${shorts[1]}${q}`;
+      }
+    }
+  } catch {
+    return "";
+  }
+  return "";
+}
+
+const youtubeEmbed = mediaKind === "youtube" ? youtubeEmbedUrl(youtubeUrl) : "";
+---
+
+<section
+  class:list={[
+    "block",
+    "block--hero",
+    variant === "contained" && "block--hero--contained",
+  ]}
+>
+  {
+    hasHeader && (
+      <div class="block--hero__header">
+        {header.title && <p class="block--hero__title">{header.title}</p>}
+        {header.lines?.map((line) => (
+          <p class="block--hero__line">{line}</p>
+        ))}
+        {header.links && header.links.length > 0 && (
+          <ul class="block--hero__links">
+            {header.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class={link.external ? "external-link--arrow" : undefined}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    )
+  }
+  {
+    mediaKind === "youtube" ? (
+      youtubeEmbed ? (
+        <div class="block--hero__media block--hero__media--video">
+          <iframe
+            class="block--hero__iframe"
+            src={youtubeEmbed}
+            title={alt || "YouTube video"}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          />
+        </div>
+      ) : (
+        <div class="block__placeholder">Invalid YouTube URL.</div>
+      )
+    ) : mediaKind === "videoFile" ? (
+      videoSrc ? (
+        <div class="block--hero__media block--hero__media--video">
+          <video
+            class="block--hero__video"
+            controls
+            playsinline
+            preload="metadata"
+            src={videoSrc}
+            poster={videoPoster || undefined}
+          />
+        </div>
+      ) : (
+        <div class="block__placeholder">Video placeholder (no src yet).</div>
+      )
+    ) : (
+      <RevealImage
+        src={src}
+        alt={alt}
+        caption={caption}
+        figureClass="block--hero__media"
+        emptyLabel="Hero image placeholder"
+      />
+    )
+  }
+</section>

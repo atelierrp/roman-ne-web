@@ -1,0 +1,98 @@
+---
+/**
+ * Text block (divider): `textType` (or legacy `kind`) — "header" | "title" | "text"
+ * - header → margin-bottom var(--block-margin-after-divider-header)
+ * - title → var(--block-margin-after-divider)
+ * - text → stack default (var(--block-margin-after-images))
+ *
+ * links: { label, href, external?, variant?: "default" | "plain" } |
+ *   { type: "modal", modalKind, ... } — modalKind includes "bandcamp" + bandcampSrc (EmbeddedPlayer URL)
+ *
+ * lines: string | { segments: (string | { href, label, external?, variant? })[] } — one paragraph;
+ * use segments for inline links (same SiteLink shape as `links` entries).
+ */
+import ModalLinkButton from "./ModalLinkButton.astro";
+import SiteLink from "../SiteLink.astro";
+
+const { lines = [], links = [], kind = "title", textType } = Astro.props;
+const raw = textType ?? kind;
+const segment =
+  raw === "header" || raw === "title" || raw === "text" ? raw : "title";
+const isText = segment === "text";
+const isHeader = segment === "header";
+---
+
+<section
+  class:list={[
+    "block",
+    "block--divider",
+    isText
+      ? "block--divider--text"
+      : isHeader
+        ? "block--divider--header"
+        : "block--divider--title",
+  ]}
+>
+  {
+    lines.map((line) => {
+      if (typeof line === "string") {
+        return <p class="block--divider__line">{line}</p>;
+      }
+      if (
+        line &&
+        typeof line === "object" &&
+        "segments" in line &&
+        Array.isArray(line.segments)
+      ) {
+        return (
+          <p class="block--divider__line">
+            {line.segments.map((seg) =>
+              typeof seg === "string" ? (
+                seg
+              ) : (
+                <SiteLink
+                  href={seg.href}
+                  label={seg.label}
+                  external={Boolean(seg.external)}
+                  variant={seg.variant ?? "default"}
+                />
+              ),
+            )}
+          </p>
+        );
+      }
+      return <p class="block--divider__line">{String(line)}</p>;
+    })
+  }
+  {
+    links.length > 0 && (
+      <ul class="block--divider__links">
+        {links.map((link) => (
+          <li>
+            {link.type === "modal" ? (
+              <ModalLinkButton
+                label={link.label}
+                modalKind={link.modalKind}
+                youtubeUrl={link.youtubeUrl}
+                imageSrc={link.imageSrc}
+                imageAlt={link.imageAlt}
+                videoSrc={link.videoSrc}
+                bandcampSrc={link.bandcampSrc}
+                bandcampHeightPx={link.bandcampHeightPx}
+                bandcampTitle={link.bandcampTitle}
+                detailHtml={link.detailHtml}
+              />
+            ) : (
+              <SiteLink
+                href={link.href}
+                label={link.label}
+                external={link.external}
+                variant={link.variant ?? "default"}
+              />
+            )}
+          </li>
+        ))}
+      </ul>
+    )
+  }
+</section>

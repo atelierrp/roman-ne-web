@@ -1,0 +1,18 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlockStack from "../components/BlockStack.astro";
+import SiteNav from "../components/SiteNav.astro";
+import { cvPage } from "../data/cvPage.js";
+import "../styles/global.css";
+---
+
+<BaseLayout title={cvPage.title} description={cvPage.description}>
+  <main class="site-main">
+    <SiteNav />
+    <div class="site-content" id="site-content">
+      <article>
+        <BlockStack blocks={cvPage.blocks} />
+      </article>
+    </div>
+  </main>
+</BaseLayout>
