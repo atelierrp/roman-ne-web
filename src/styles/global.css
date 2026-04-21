@@ -406,14 +406,16 @@ li {
 
 /* Aside “Full CV” etc.: emphasis face for inline links */
 .bio-layout__aside .block--divider__links a,
-.bio-layout__aside .block--divider__links .block--modal__trigger {
+.bio-layout__aside .block--divider__links .block--modal__trigger,
+.bio-layout__aside .bio-md a {
   /* font-family: "Greed Wide Bold", system-ui, sans-serif; */
   /* font-size: 1rem; */
   /* line-height: 0.9; */
   text-decoration: underline;
 }
 
-.bio-layout__aside .block--divider__links a.site-link--plain {
+.bio-layout__aside .block--divider__links a.site-link--plain,
+.bio-layout__aside .bio-md a.site-link--plain {
   text-decoration: none;
 }
 
@@ -429,6 +431,38 @@ li {
 }
 
 .bio-layout__aside .block-stack > .block:last-child {
+  margin-bottom: 0;
+}
+
+/* Bio intro / aside from Markdown (Content collections) */
+.bio-md--intro {
+  max-width: 720px;
+}
+
+.bio-md--intro p {
+  margin: 0 0 1lh;
+  font-size: inherit;
+  font-weight: normal;
+}
+
+.bio-md--intro p:last-child {
+  margin-bottom: 0;
+}
+
+.bio-layout__aside .bio-md--aside h2 {
+  margin: 0;
+  font: inherit;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.bio-layout__aside .bio-md--aside p {
+  margin: 0 0 1lh;
+  font-size: inherit;
+  font-weight: normal;
+}
+
+.bio-layout__aside .bio-md--aside p:last-child {
   margin-bottom: 0;
 }
 

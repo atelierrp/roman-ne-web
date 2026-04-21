@@ -27,7 +27,7 @@ npm run preview
 - **Works metadata + subpage slugs:** [`src/data/works.js`](src/data/works.js)
 - **Current project copy:** [`src/data/current.js`](src/data/current.js)
 - **HCYN page blocks + SEO fields:** [`src/data/hardcoreyoganidraPage.js`](src/data/hardcoreyoganidraPage.js)
-- **Bio page blocks + SEO fields:** [`src/data/bioPage.js`](src/data/bioPage.js)
+- **Bio page copy + SEO + image meta:** [`src/content/bio/intro.md`](src/content/bio/intro.md), [`src/content/bio/aside.md`](src/content/bio/aside.md) (collection `bio` in [`src/content.config.ts`](src/content.config.ts))
 - **Optional per-slug detail blocks:** [`src/data/workDetailPages.js`](src/data/workDetailPages.js)
 
 ## Composable blocks
@@ -47,7 +47,7 @@ Tokens live in [`src/styles/global.css`](src/styles/global.css): `--space-unit` 
 
 **Responsive:** image rows use one column ≤640px (see `global.css`).
 
-Example page data: [`src/data/hardcoreyoganidraPage.js`](src/data/hardcoreyoganidraPage.js), [`src/data/bioPage.js`](src/data/bioPage.js).
+Example page data: [`src/data/hardcoreyoganidraPage.js`](src/data/hardcoreyoganidraPage.js); bio uses markdown under `src/content/bio/` (see above).
 
 Add a new block type: new component under `src/components/blocks/` + one branch in `BlockStack.astro`.
 
