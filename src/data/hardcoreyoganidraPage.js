@@ -29,16 +29,8 @@ export const hardcoreyoganidraPage = {
     {
       type: "divider",
       kind: "header",
-      // lines: [
-      //   "A spatial sound practice structuring attention through voice and low frequencies. Participants lie in stillness as sound and minimal guidance shape a shared perceptual field between focus and drift.",
-      // ],
-      links: [
-        {
-          type: "modal",
-          label: "video",
-          modalKind: "youtube",
-          youtubeUrl: currentProject.youtubeUrl,
-        },
+      lines: [
+        "Positioned within a sound field, attention is directed across the body and surrounding space. Internal imagery emerges.",
       ],
     },
     {
@@ -65,6 +57,14 @@ export const hardcoreyoganidraPage = {
       type: "divider",
       kind: "header",
       lines: ["Black Square", "Chiang Mai, Thailand 2025"],
+      links: [
+        {
+          type: "modal",
+          label: "Watch",
+          modalKind: "youtube",
+          youtubeUrl: currentProject.youtubeUrl,
+        },
+      ],
     },
     {
       type: "hero",
