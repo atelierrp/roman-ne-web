@@ -60,7 +60,7 @@ export const hardcoreyoganidraPage = {
       links: [
         {
           type: "modal",
-          label: "Watch",
+          label: "Watch video",
           modalKind: "youtube",
           youtubeUrl: currentProject.youtubeUrl,
         },
@@ -75,7 +75,7 @@ export const hardcoreyoganidraPage = {
     {
       type: "imageRow",
       header: {
-        lines: ["HAAN Hall", "Installation at Chiang Mai Design Week, 2025. "],
+        lines: ["HAAN Hall", "Installation at Chiang Mai Design Week, 2025"],
       },
       images: [
         {

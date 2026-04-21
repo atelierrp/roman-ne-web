@@ -199,6 +199,11 @@ li {
   margin-bottom: var(--block-margin-after-divider-header);
 }
 
+/* Header block followed by a new section title: use full stack gap (same as after hero / image row). */
+.block-stack > .block.block--divider--header:has(+ .block.block--divider--title) {
+  margin-bottom: var(--block-margin-after-images);
+}
+
 .block-stack > .block:last-child {
   margin-bottom: 0;
 }
@@ -469,6 +474,10 @@ li {
 @media (max-width: 768px) {
   .bio-layout {
     grid-template-columns: 1fr;
+    /* Same vertical rhythm as after image blocks; clears home indicator / browser chrome */
+    padding-bottom: calc(
+      var(--block-margin-after-images) + env(safe-area-inset-bottom, 0px)
+    );
   }
 
   .bio-layout__intro,

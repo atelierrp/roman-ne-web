@@ -59,7 +59,15 @@ export const workDetailPages = {
         type: "divider",
         kind: "header",
         // mediaKind: "youtube",
-        lines: ["Skopje / Delay and Recognition", "Watch film"],
+        lines: ["Skopje / Delay and Recognition"],
+        links: [
+          {
+            type: "modal",
+            label: "Watch video",
+            modalKind: "youtube",
+            youtubeUrl: "https://www.youtube.com/watch?v=gQwNlzhPPjY",
+          },
+        ],
         header: {},
         // variant: "full",
         // src: "/images/igja-skopje.jpg",
