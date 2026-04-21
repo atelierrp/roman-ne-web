@@ -27,7 +27,7 @@
 :root {
   --font-family-body: "Greed Regular", system-ui, sans-serif;
   --color-text: #5A5A5A;
-  --font-size-body-mobile: 21px; /* 18px */
+  --font-size-body-mobile: 19px; /* 18px */
   --font-size-body-desktop: 23px; /* 20px */
   /* Unitless; shared by body copy, headings (1em), lists, nav */
   --line-height-body: 1;
@@ -637,7 +637,7 @@ li {
 
 .site-nav-slot {
   font-family: var(--font-family-body);
-  font-family: "Greed Wide Bold", system-ui, sans-serif;
+  /* font-family: "Greed Wide Bold", system-ui, sans-serif; */
   font-size: inherit;
   line-height: inherit;
   position: fixed;
