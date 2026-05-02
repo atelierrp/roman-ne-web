@@ -1,0 +1,164 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/blocks/Hero.astro";
+import { currentProject } from "../data/current.js";
+import "../styles/global.css";
+---
+
+<BaseLayout
+  title="Hardcore yoga nidra — Roman Ne"
+  description="Small group sessions in Zürich. Voice, sound, attention. 60 min. Message on WhatsApp."
+>
+  <main class="hcyn">
+    <article class="bio-layout hcyn__layout">
+      <div class="bio-layout__intro hcyn__intro">
+        <h1 class="hcyn__title">
+          <span>hardcore</span>
+          <span>yoga</span>
+          <span>nidra</span>
+        </h1>
+        <div class="hcyn__schedule">
+          <p>Fri 12/6 — 20:00</p>
+          <p>Fri 19/6 — 20:00</p>
+          <p>Fri 26/6 — 20:00</p>
+        </div>
+        <p class="hcyn__cta-wrap">
+          <a
+            class="hcyn__cta"
+            href="https://wa.me/41772665832"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            → message on WhatsApp
+          </a>
+        </p>
+      </div>
+
+      <div class="bio-layout__image hcyn__meta">
+        <section class="hcyn__details" aria-label="Session and studio">
+          <div class="hcyn__session">
+            <p>Small group sessions</p>
+            <p>Voice, sound, attention</p>
+            <p>60 min — 25 CHF</p>
+            <p>in English</p>
+            <p><br /></p>
+          </div>
+          <div class="hcyn__studio">
+            <p>Studio</p>
+            <p>Zypressenstrasse 60</p>
+            <p>
+              <a class="hcyn__tel" href="tel:+41772665832">+41 77 266 58 32</a>
+            </p>
+          </div>
+        </section>
+      </div>
+
+      <div class="bio-layout__aside hcyn__video">
+        <Hero
+          variant="contained"
+          mediaKind="youtube"
+          youtubeUrl={currentProject.youtubeUrl}
+          alt="Black Square — hardcore yoga nidra"
+        />
+      </div>
+    </article>
+  </main>
+</BaseLayout>
+
+<style>
+  .hcyn {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    min-height: 100dvh;
+    color: #fff;
+    background: #000;
+    padding-top: calc(env(safe-area-inset-top, 0px) + 1rem);
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 2rem);
+  }
+
+  .hcyn a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .hcyn a:hover {
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+  }
+
+  .hcyn__layout {
+    row-gap: calc(var(--bio-row-gap) / 2.5 * 1.5);
+  }
+
+  .hcyn__title {
+    margin: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 0.92;
+  }
+
+  .hcyn__title span {
+    display: block;
+    font-family: "Greed Wide Bold", system-ui, sans-serif;
+    font-size: clamp(2.25rem, 7.5vw, 4.75rem);
+    letter-spacing: -0.02em;
+    text-transform: lowercase;
+  }
+
+  @media (max-width: 768px) {
+    .hcyn__title span {
+      font-size: clamp(2.7rem, 9vw, 5.7rem);
+    }
+  }
+
+  .hcyn__schedule {
+    margin-top: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .hcyn__schedule p {
+    margin: 0;
+    line-height: inherit;
+  }
+
+  .hcyn__schedule p + p {
+    margin-top: calc((var(--line-height-body) - 1) * 1em);
+  }
+
+  .hcyn__cta-wrap {
+    margin: clamp(1rem, 3vw, 1.5rem) 0 0;
+  }
+
+  .hcyn__video :global(.block--hero) {
+    margin: 0;
+  }
+
+  .hcyn__video :global(.block--hero--contained .block--hero__media) {
+    max-width: 100%;
+  }
+
+  .hcyn__details {
+    margin: 0;
+  }
+
+  .hcyn__session,
+  .hcyn__studio {
+    margin: 0;
+  }
+
+  .hcyn__session p,
+  .hcyn__studio p {
+    margin: 0;
+    line-height: inherit;
+  }
+
+  .hcyn__session p + p,
+  .hcyn__studio p + p {
+    margin-top: calc((var(--line-height-body) - 1) * 1em);
+  }
+
+  .hcyn__studio {
+    margin-top: clamp(1.5rem, 4vw, 2.25rem);
+  }
+</style>
