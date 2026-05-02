@@ -13,7 +13,13 @@ import "../styles/global.css";
   <main class="site-main">
     <SiteNav />
     <div class="site-content" id="site-content">
-      <BlockStack blocks={hardcoreyoganidraPage.blocks} />
+      <article>
+        <div class="work-header">
+          <h1>{hardcoreyoganidraPage.heading.title}</h1>
+          <p>{hardcoreyoganidraPage.heading.subtitle}</p>
+        </div>
+        <BlockStack blocks={hardcoreyoganidraPage.blocks} />
+      </article>
     </div>
   </main>
 </BaseLayout>

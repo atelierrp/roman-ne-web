@@ -26,7 +26,10 @@
 
 :root {
   --font-family-body: "Greed Regular", system-ui, sans-serif;
-  --color-text: #5A5A5A;
+  --font-family-wide-bold: "Greed Wide Bold", system-ui, sans-serif;
+  --font-size-headline-wide: 25px;
+  --line-height-headline-wide: calc(1em + 2px);
+  --color-text: #fff;
   --font-size-body-mobile: 19px; /* 18px */
   --font-size-body-desktop: 23px; /* 20px */
   /* Unitless; shared by body copy, headings (1em), lists, nav */
@@ -221,10 +224,10 @@ li {
 
 .block--cv-section__header {
   margin: 0 0 var(--block-margin-after-header-text);
-  font-size: inherit;
+  font-family: var(--font-family-wide-bold);
+  font-size: var(--font-size-headline-wide);
   font-weight: inherit;
-  line-height: inherit;
-  text-transform: uppercase;
+  line-height: var(--line-height-headline-wide);
 }
 
 .block--cv-year-block {
@@ -904,6 +907,9 @@ article.work-entry:last-of-type {
 }
 
 .site-content--contact a {
+  font-family: var(--font-family-wide-bold);
+  font-size: var(--font-size-headline-wide);
+  line-height: var(--line-height-headline-wide);
   text-decoration: none;
 }
 
@@ -1073,4 +1079,10 @@ article.work-entry:last-of-type {
 
 .work-header {
   margin-bottom: var(--block-margin-after-header-text);
+}
+
+.work-header h1 {
+  font-family: var(--font-family-wide-bold);
+  font-size: var(--font-size-headline-wide);
+  line-height: var(--line-height-headline-wide);
 }

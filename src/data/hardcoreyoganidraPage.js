@@ -14,13 +14,14 @@ export const hardcoreyoganidraPage = {
   title: `Roman Ne — ${currentProject.title}`,
   description: currentProject.intro,
   sectionLabel: currentProject.sectionLabel,
+  heading: {
+    title: "Hardcore Yoga Nidra",
+    subtitle: "HCYN",
+  },
   blocks: [
     {
       type: "hero",
       // mediaKind: "youtube",
-      header: {
-        lines: ["Hardcore yoga nidra", "(HCYN)"],
-      },
       variant: "full",
       src: "/images/hcyn1.jpg",
       alt: currentProject.heroAlt,
