@@ -9,11 +9,11 @@ export const cvPage = {
   blocks: [
     {
       type: "cvSection",
-      header: "Recent work",
+      header: "recent",
       yearBlocks: [
         {
           year: "2026",
-          lines: ["Adjustments to Nothing (ongoing)"],
+          lines: ["Adjustments to Nothing"],
         },
         {
           year: "2025",
@@ -34,7 +34,7 @@ export const cvPage = {
     },
     {
       type: "cvSection",
-      header: "Exhibitions & performances",
+      header: "shows",
       yearBlocks: [
         {
           year: "2008–2018",
@@ -69,11 +69,11 @@ export const cvPage = {
     },
     {
       type: "cvSection",
-      header: "Residencies & recognitions",
+      header: "residencies\n & recognitions",
       yearBlocks: [
         {
           year: "2026",
-          lines: ["Planned: ZHdK field trip — Yerevan, Armenia"],
+          lines: ["ZHdK field trip — Yerevan, Armenia"],
         },
         {
           year: "2025",
@@ -102,7 +102,7 @@ export const cvPage = {
     },
     {
       type: "cvSection",
-      header: "Professional experience",
+      header: "professional",
       yearBlocks: [
         {
           year: "2020–2026",
@@ -120,7 +120,7 @@ export const cvPage = {
     },
     {
       type: "cvSection",
-      header: "Education",
+      header: "education",
       yearBlocks: [
         {
           lines: [

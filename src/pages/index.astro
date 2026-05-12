@@ -1,24 +1,76 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Hero from "../components/blocks/Hero.astro";
+import RevealImage from "../components/RevealImage.astro";
 import SiteNav from "../components/SiteNav.astro";
-import { currentProject } from "../data/current.js";
+import { homeEventsPage } from "../data/homeEventsPage.js";
 import "../styles/global.css";
+
+const linkAttrs = (external) =>
+  external ? { target: "_blank", rel: "noopener noreferrer" } : {};
 ---
 
 <BaseLayout
-  title="Roman Ne — Home"
-  description="Roman Ne — sound, attention, spatial situations."
+  title={homeEventsPage.title}
+  description={homeEventsPage.description}
 >
-  <main class="site-main site-main--home">
+  <main class="site-main">
     <SiteNav activeId="home" />
-    <div class="home-video">
-      <Hero
-        variant="contained"
-        mediaKind="youtube"
-        youtubeUrl={currentProject.youtubeUrl}
-        alt="Black Square — hardcore yoga nidra"
-      />
+    <div class="site-content" id="site-content">
+      <article class="home-events-page">
+        <div class="home-events">
+          <h1 class="home-events__title">{homeEventsPage.heading}</h1>
+          <ul class="home-events__list">
+            {
+              homeEventsPage.upcoming.map((item) => (
+                <li class="home-events__item">
+                  {item.href ? (
+                    <a
+                      class="home-events__link"
+                      href={item.href}
+                      {...linkAttrs(item.external)}
+                    >
+                      {item.line}
+                    </a>
+                  ) : (
+                    <span class="home-events__text">{item.line}</span>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+          {
+            homeEventsPage.past.length > 0 && (
+              <>
+                <div class="home-events__between" aria-hidden="true" />
+                <ul class="home-events__list">
+                  {homeEventsPage.past.map((item) => (
+                    <li class="home-events__item">
+                      {item.href ? (
+                        <a
+                          class="home-events__link"
+                          href={item.href}
+                          {...linkAttrs(item.external)}
+                        >
+                          {item.line}
+                        </a>
+                      ) : (
+                        <span class="home-events__text">{item.line}</span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )
+          }
+        </div>
+        <div class="home-events-page__media">
+          <RevealImage
+            src={homeEventsPage.heroImage.src}
+            alt={homeEventsPage.heroImage.alt}
+            figureClass="home-events__hero"
+          />
+        </div>
+      </article>
     </div>
   </main>
 </BaseLayout>

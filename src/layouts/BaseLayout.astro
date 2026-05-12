@@ -15,6 +15,25 @@ const canonicalHref = Astro.site
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style is:inline>
+      html:not(.fonts-ready) .page-frame {
+        opacity: 0;
+      }
+      html.fonts-ready .page-frame {
+        opacity: 1;
+        transition: opacity 0.15s ease-out;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html.fonts-ready .page-frame {
+          transition: none;
+        }
+      }
+      @media (scripting: none) {
+        .page-frame {
+          opacity: 1 !important;
+        }
+      }
+    </style>
     <link
       rel="preload"
       href="/greed/GreedStandard-Regular.woff2"
@@ -39,6 +58,29 @@ const canonicalHref = Astro.site
     <div class="page-frame">
       <slot />
     </div>
+    <script is:inline>
+      (function () {
+        function revealFonts() {
+          document.documentElement.classList.add("fonts-ready");
+        }
+        if (!document.fonts || !document.fonts.load) {
+          revealFonts();
+        } else {
+          var t = setTimeout(revealFonts, 3000);
+          Promise.all([
+            document.fonts.load('400 23px "Greed Regular"'),
+            document.fonts.load('400 19px "Greed Regular"'),
+            document.fonts.load('800 64px "Greed Wide Bold"'),
+            document.fonts.load('800 25px "Greed Wide Bold"'),
+          ])
+            .catch(function () {})
+            .then(function () {
+              clearTimeout(t);
+              revealFonts();
+            });
+        }
+      })();
+    </script>
     <script is:inline>
       (function () {
         var thresholdPx = 20;

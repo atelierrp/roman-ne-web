@@ -12,8 +12,8 @@
   src: url("/greed/GreedStandard-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
-  /* Preload in BaseLayout; optional avoids a late swap (flicker) if the font is slow */
-  font-display: optional;
+  /* Shown only after BaseLayout font gate; swap avoids indefinite invisible with block */
+  font-display: swap;
 }
 
 @font-face {
@@ -21,13 +21,15 @@
   src: url("/greed/GreedExtended-Bold.woff2") format("woff2");
   font-weight: 800;
   font-style: normal;
-  font-display: optional;
+  font-display: swap;
 }
 
 :root {
   --font-family-body: "Greed Regular", system-ui, sans-serif;
   --font-family-wide-bold: "Greed Wide Bold", system-ui, sans-serif;
   --font-size-headline-wide: 25px;
+   /* Project subpages + home events headline (HCYN session pages keep their own larger type) */
+  --font-size-project-headline: 64px;
   --line-height-headline-wide: calc(1em + 2px);
   --color-text: rgba(255,255,255,0.92);
   --font-size-body-mobile: 19px; /* 18px */
@@ -78,9 +80,6 @@
 
   /* Hero when variant is "contained" */
   --hero-contained-max-width: 46rem;
-  /* Home: tight inset below nav + around video (fits viewport, no scroll) */
-  --home-page-content-padding-top: calc(5 / 3 * var(--space-unit));
-  --home-video-padding: calc(5 / 3 * var(--space-unit));
 
   /* Portrait images in a row */
   --row-image-max-height: min(85vh, 40rem);
@@ -225,9 +224,11 @@ li {
 .block--cv-section__header {
   margin: 0 0 var(--block-margin-after-header-text);
   font-family: var(--font-family-wide-bold);
-  font-size: var(--font-size-headline-wide);
+  font-size: var(--font-size-project-headline);
   font-weight: inherit;
-  line-height: var(--line-height-headline-wide);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  white-space: pre-line;
 }
 
 .block--cv-year-block {
@@ -725,60 +726,109 @@ html[data-nav-scroll-concealed] .site-nav-slot > * {
   );
 }
 
-/* Home: one screen — video scales to fit; no document scroll */
-html:has(main.site-main--home) {
-  overflow: hidden;
-  height: 100%;
-}
-
-html:has(main.site-main--home) body {
-  overflow: hidden;
-  height: 100%;
-}
-
-main.site-main--home {
-  min-height: 100dvh;
-  max-height: 100dvh;
-  padding-top: calc(
-    var(--site-nav-fixed-clearance) + var(--home-page-content-padding-top)
-  );
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-}
-
-.site-main--home .home-video {
-  flex: 1 1 0;
-  min-height: 0;
+/* Home: HCYN events — copy + links in `src/data/homeEventsPage.js` */
+.home-events {
+  max-width: 720px;
   width: 100%;
-  padding: var(--home-video-padding);
-  padding-bottom: 3rem;
-  display: grid;
-  place-items: center;
-  container-type: size;
-  container-name: home-video;
+  margin-inline: 0;
+  text-align: left;
 }
 
-.site-main--home .home-video .block--hero {
+.home-events__title {
+  margin: 0 0 var(--block-margin-after-header-text);
+  font-family: var(--font-family-wide-bold);
+  font-size: var(--font-size-project-headline);
+  font-weight: inherit;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+
+.home-events__list {
+  list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.home-events__item {
+  margin: 0;
+  padding: 0;
+}
+
+.home-events__item + .home-events__item {
+  margin-top: var(--line-gap-body);
+}
+
+.home-events__link,
+.home-events__text {
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+}
+
+.home-events__link {
+  text-decoration: none;
+}
+
+.home-events__link::after {
+  content: " \2197";
+  font-size: 1em;
+}
+
+.home-events__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.home-events__between {
+  height: 1em;
+  height: 1lh;
+  margin: 0;
+  padding: 0;
+}
+
+/* Home: single column — events, then image (`src/pages/index.astro`); flush left, hero uses full content width */
+.home-events-page {
   width: 100%;
-  min-height: 0;
-  max-height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  max-width: 100%;
+  text-align: left;
 }
 
-/* Fit 16:9 embed to available box (letterboxing via padding on .home-video) */
-.site-main--home .home-video .block--hero--contained .block--hero__media {
-  width: min(100cqw, calc(100cqh * 16 / 9));
-  max-width: none;
-  max-height: 100cqh;
-  margin-inline: auto;
+.home-events-page__media {
+  /* Space between event list and hero — tight (≈2× nav link gap), not full --bio-row-gap */
+  margin-top: calc(2 * var(--site-nav-item-gap));
+  width: 100%;
+  margin-inline: 0;
+  overflow-x: visible;
 }
 
-.site-main--home .home-video .block--hero__iframe {
-  max-height: 100cqh;
+/* Homepage hero: force width — intrinsic RevealImage uses width:auto on img and wins without !important */
+.home-events-page__media figure.home-events__hero.reveal-image {
+  display: block;
+  margin: 0;
+  margin-right: auto;
+  box-sizing: border-box;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.home-events-page__media figure.home-events__hero .reveal-image__media {
+  width: 100% !important;
+}
+
+.home-events-page__media figure.home-events__hero .reveal-image__img {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  height: auto !important;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (min-width: 769px) {
+  .home-events-page__media figure.home-events__hero.reveal-image {
+    width: min(77vw, 2000px) !important;
+    max-width: 2000px !important;
+  }
 }
 
 /* No background scroll while media modal is shown */
@@ -911,6 +961,15 @@ article.work-entry:last-of-type {
   font-size: var(--font-size-headline-wide);
   line-height: var(--line-height-headline-wide);
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .site-content--contact a {
+    font-family: var(--font-family-body);
+    font-weight: normal;
+    font-size: inherit;
+    line-height: inherit;
+  }
 }
 
 .site-content--contact a:focus-visible {
@@ -1081,8 +1140,17 @@ article.work-entry:last-of-type {
   margin-bottom: var(--block-margin-after-header-text);
 }
 
+.work-header h1 + p {
+  margin-top: clamp(1rem, 3vw, 1.5rem);
+}
+
+.work-header p + p {
+  margin-top: calc((var(--line-height-body) - 1) * 1em);
+}
+
 .work-header h1 {
   font-family: var(--font-family-wide-bold);
-  font-size: var(--font-size-headline-wide);
-  line-height: var(--line-height-headline-wide);
+  font-size: var(--font-size-project-headline);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
