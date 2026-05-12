@@ -557,6 +557,16 @@ li {
   max-height: var(--row-image-max-height);
 }
 
+/* Two+ portrait cells: set height on the img (not an empty-tall wrapper). max-height alone never scales up. */
+.block--image-row__grid--vertical-row:has(> .block--image-row__cell:nth-child(2))
+  .block--image-row__cell.is-vertical
+  .reveal-image__img {
+  height: var(--row-image-max-height);
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 .bio-layout__image
   .block--image-row__grid--vertical-row
   .block--image-row__cell.is-vertical
