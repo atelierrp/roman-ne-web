@@ -93,7 +93,7 @@ export const cvPage = {
         {
           year: "2011",
           lines: [
-            "Red Bull Music Academy — Madrid",
+            "Red Bull Music Academy — Madrid (Fiordmoss)",
             "ArtMill Residency — Czechia",
             "Ateliér Banja Luka — Bosnia and Herzegovina",
           ],
