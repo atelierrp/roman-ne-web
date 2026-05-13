@@ -34,7 +34,7 @@ export const cvPage = {
     },
     {
       type: "cvSection",
-      header: "shows",
+      header: "Exhibitions & performances",
       yearBlocks: [
         {
           year: "2008–2018",
@@ -69,7 +69,7 @@ export const cvPage = {
     },
     {
       type: "cvSection",
-      header: "residencies\n & recognitions",
+      header: "residencies & recognitions",
       yearBlocks: [
         {
           year: "2026",

@@ -25,26 +25,28 @@ const imageAlt = introMeta.imageAlt ?? "";
     <SiteNav activeId="bio" />
     <div class="site-content" id="site-content">
       <article class="bio-layout">
-        <div class="bio-layout__intro">
-          <div class="bio-md bio-md--intro">
-            <IntroContent />
-          </div>
-        </div>
-        {
-          imageSrc && (
-            <div class="bio-layout__image">
-              <ImageRow
-                images={[
-                  {
-                    src: imageSrc,
-                    alt: imageAlt,
-                    orientation: "vertical",
-                  },
-                ]}
-              />
+        <div class="bio-layout__column">
+          <div class="bio-layout__intro">
+            <div class="bio-md bio-md--intro">
+              <IntroContent />
             </div>
-          )
-        }
+          </div>
+          {
+            imageSrc && (
+              <div class="bio-layout__image">
+                <ImageRow
+                  images={[
+                    {
+                      src: imageSrc,
+                      alt: imageAlt,
+                      orientation: "vertical",
+                    },
+                  ]}
+                />
+              </div>
+            )
+          }
+        </div>
         <div class="bio-layout__aside">
           <div class="bio-md bio-md--aside">
             <AsideContent />

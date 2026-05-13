@@ -2,9 +2,9 @@
   Layout tokens — tune here; blocks stay flush horizontally (no side padding).
 
   Vertical rhythm: --space-unit is the base step (default 0.15rem). Most gaps are
-  N×--space-unit or fractions of --block-margin-after-images (40× unit) so one
-  knob scales the stack: change --space-unit, or only --block-margin-after-images
-  via calc(40 * var(--space-unit)).
+  N×--space-unit or fractions of --block-margin-after-images (24× on mobile, 40× from
+  768px up) so one knob scales the stack: change --space-unit, or override
+  --block-margin-after-images in the desktop :root media query.
 */
 
 @font-face {
@@ -28,8 +28,9 @@
   --font-family-body: "Greed Regular", system-ui, sans-serif;
   --font-family-wide-bold: "Greed Wide Bold", system-ui, sans-serif;
   --font-size-headline-wide: 25px;
-   /* Project subpages + home events headline (HCYN session pages keep their own larger type) */
+   /* Project subpages + CV section titles; page `<h1>` uses --font-size-h1 */
   --font-size-project-headline: 64px;
+  --font-size-h1: 46px;
   --line-height-headline-wide: calc(1em + 2px);
   --color-text: rgba(255,255,255,0.92);
   --font-size-body-mobile: 19px; /* 18px */
@@ -49,11 +50,15 @@
   --space-8: calc(8 * var(--space-unit));
   --space-10: calc(10 * var(--space-unit));
   --space-12: calc(12 * var(--space-unit));
+  --space-16: calc(16 * var(--space-unit));
   --space-20: calc(20 * var(--space-unit));
+  --space-24: calc(24 * var(--space-unit));
+  --space-26: calc(26 * var(--space-unit));
+  --space-30: calc(30 * var(--space-unit));
   --space-40: calc(40 * var(--space-unit));
 
-  /* Vertical rhythm: default large gap between stacked blocks & under image rows */
-  --block-margin-after-images: var(--space-40);
+  /* Vertical rhythm: large gap between blocks / image rows — mobile 24× unit, desktop 40× */
+  --block-margin-after-images: var(--space-24);
   /* Section labels (divider title): ⅕ of large gap */
   --block-margin-after-divider: calc(var(--space-10));
   /* Divider “header” kind: ¹⁄₁₀ of large gap */
@@ -64,10 +69,10 @@
   --image-row-gap: var(--block-margin-after-header-text);
   --space-inline-gap: var(--block-margin-after-header-text);
 
-  --page-padding-inline: calc(var(--block-margin-after-images) / 12);
+  --page-padding-inline: 15px;
   --page-padding-bottom: 0rem;
-  /* Space below fixed nav before main content (in addition to nav clearance); px = fixed offset */
-  --page-content-padding-top: 24px;
+  /* Extra gap below the fixed nav rail before article content (uses --space-* scale) */
+  --page-content-padding-top: var(--space-16);
 
   /* Bio two-column layout (bio.astro); matches BlockStack gap between blocks (line-gap is 0 at lh 1) */
   --bio-layout-max-width: 1400px;
@@ -99,8 +104,10 @@
   --nav-category-padding-inline: 0.35em;
   --nav-dimmed-content-opacity: 0;
 
-  /* Fixed top nav: reserved height for one-line bar + safe area */
-  --site-nav-fixed-clearance: calc(env(safe-area-inset-top, 0px) + 2.5rem);
+  /* Fixed top nav: safe area + one-line bar (2.5rem ≡ 100/6 × --space-unit) */
+  --site-nav-fixed-clearance: calc(
+    env(safe-area-inset-top, 0px) + (100 / 6 * var(--space-unit))
+  );
   /* Bar nav: space between “Roman Ne” and the link group; space within the group */
   --site-nav-parts-gap: calc(88 / 3 * var(--space-unit));
   --site-nav-item-gap: var(--block-margin-after-divider-header);
@@ -132,6 +139,12 @@ html {
 @media (min-width: 768px) {
   html {
     font-size: var(--font-size-body-desktop);
+  }
+
+  :root {
+    --font-size-h1: 56px;
+    --page-padding-inline: 20px;
+    --block-margin-after-images: var(--space-40);
   }
 }
 
@@ -187,6 +200,10 @@ li {
 }
 
 /* Stack: spacing = margin-bottom per block type */
+.block-stack {
+  padding-bottom: var(--block-margin-after-images);
+}
+
 .block-stack > .block {
   margin-bottom: var(--block-margin-after-images);
 }
@@ -224,11 +241,12 @@ li {
 .block--cv-section__header {
   margin: 0 0 var(--block-margin-after-header-text);
   font-family: var(--font-family-wide-bold);
-  font-size: var(--font-size-project-headline);
+  /* font-size: var(--font-size-project-headline); */
   font-weight: inherit;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  /* line-height: 1.05; */
+  /* letter-spacing: -0.02em; */
   white-space: pre-line;
+  text-transform: uppercase;
 }
 
 .block--cv-year-block {
@@ -384,31 +402,30 @@ li {
   font-size: inherit;
 }
 
-/* --- Bio page (50 / 50; aside top aligns with intro, spans beside image) --- */
+/* --- Bio page: two columns — left stacks intro + image; gap matches main inset below nav --- */
 
 .bio-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   column-gap: var(--bio-column-gap);
-  row-gap: var(--bio-row-gap);
   align-items: start;
   width: 100%;
   max-width: var(--bio-layout-max-width);
 }
 
-.bio-layout__intro {
+.bio-layout__column {
   grid-column: 1;
   grid-row: 1;
-}
-
-.bio-layout__image {
-  grid-column: 1;
-  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-24);
+  min-width: 0;
 }
 
 .bio-layout__aside {
   grid-column: 2;
-  grid-row: 1 / span 2;
+  grid-row: 1;
   align-self: start;
   min-width: 0;
 }
@@ -478,14 +495,14 @@ li {
 @media (max-width: 768px) {
   .bio-layout {
     grid-template-columns: 1fr;
+    row-gap: var(--space-24);
     /* Same vertical rhythm as after image blocks; clears home indicator / browser chrome */
     padding-bottom: calc(
       var(--block-margin-after-images) + env(safe-area-inset-bottom, 0px)
     );
   }
 
-  .bio-layout__intro,
-  .bio-layout__image,
+  .bio-layout__column,
   .bio-layout__aside {
     grid-column: 1;
     grid-row: auto;
@@ -574,7 +591,7 @@ li {
   max-width: min(400px, 100%);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .block--image-row__grid {
     grid-template-columns: 1fr;
   }
@@ -587,6 +604,29 @@ li {
   .block--image-row__grid--vertical-row .block--image-row__cell.is-vertical {
     width: 100%;
     max-width: 100%;
+  }
+
+  /* Full column width: intrinsic width:auto left empty band in 1fr cells */
+  .block--image-row__grid--vertical-row .block--image-row__cell.is-vertical .reveal-image__media {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .block--image-row__grid--vertical-row .block--image-row__cell.is-vertical .reveal-image__img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: var(--row-image-max-height);
+    object-fit: contain;
+  }
+
+  .block--image-row__grid--vertical-row:has(> .block--image-row__cell:nth-child(2))
+    .block--image-row__cell.is-vertical
+    .reveal-image__img {
+    height: auto;
+    width: 100%;
+    max-height: var(--row-image-max-height);
   }
 }
 
@@ -615,6 +655,7 @@ li {
   margin: 0;
   font-size: inherit;
   font-weight: normal;
+  white-space: pre-line;
 }
 
 .block--divider__line + .block--divider__line {
@@ -747,7 +788,7 @@ html[data-nav-scroll-concealed] .site-nav-slot > * {
 .home-events__title {
   margin: 0 0 var(--block-margin-after-header-text);
   font-family: var(--font-family-wide-bold);
-  font-size: var(--font-size-project-headline);
+  font-size: var(--font-size-h1);
   font-weight: inherit;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -860,7 +901,7 @@ html:has(#work-modal[open]) body {
   justify-content: flex-start;
   column-gap: var(--site-nav-parts-gap);
   row-gap: var(--site-nav-item-gap);
-  padding-top: calc(var(--page-padding-inline)/2);
+  padding-top: 20px;
 }
 
 .site-nav--bar .site-nav__list {
@@ -1151,7 +1192,8 @@ article.work-entry:last-of-type {
 }
 
 .work-header h1 + p {
-  margin-top: clamp(1rem, 3vw, 1.5rem);
+  /* margin-top: clamp(1rem, 3vw, 1.5rem); */
+  white-space: pre-line;
 }
 
 .work-header p + p {
@@ -1160,7 +1202,9 @@ article.work-entry:last-of-type {
 
 .work-header h1 {
   font-family: var(--font-family-wide-bold);
-  font-size: var(--font-size-project-headline);
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+  text-transform: uppercase;
 }

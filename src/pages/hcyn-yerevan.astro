@@ -11,45 +11,47 @@ import "../styles/global.css";
 >
   <main class="hcyn">
     <article class="bio-layout hcyn__layout">
-      <div class="bio-layout__intro hcyn__intro">
-        <h1 class="hcyn__title">
-          <span>hardcore</span>
-          <span>yoga</span>
-          <span>nidra</span>
-        </h1>
-        <div class="hcyn__schedule">
-          <p>Fri 29/5 — 12:00</p>
-          <p>Fri 29/5 — 15:00</p>
+      <div class="bio-layout__column">
+        <div class="bio-layout__intro hcyn__intro">
+          <h1 class="hcyn__title">
+            <span>hardcore</span>
+            <span>yoga</span>
+            <span>nidra</span>
+          </h1>
+          <div class="hcyn__schedule">
+            <p>Fri 29/5 — 12:00</p>
+            <p>Fri 29/5 — 15:00</p>
+          </div>
+          <p class="hcyn__cta-wrap">
+            <a
+              class="hcyn__cta"
+              href="https://wa.me/41772665832"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              → reserve via WhatsApp
+            </a>
+          </p>
         </div>
-        <p class="hcyn__cta-wrap">
-          <a
-            class="hcyn__cta"
-            href="https://wa.me/41772665832"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            → reserve via WhatsApp
-          </a>
-        </p>
-      </div>
 
-      <div class="bio-layout__image hcyn__meta">
-        <section class="hcyn__details" aria-label="Session and studio">
-          <div class="hcyn__session">
-            <p>60 min closed-eyes listening session</p>
-            <p>lying down, no movement</p>
-            <p>max 8 people per session</p>
-            <p>in English</p>
-            <p><br /></p>
-            <p>free participation</p>
-            <p><br /></p>
-          </div>
-          <div class="hcyn__studio">
-            <p>Living Room</p>
-            <p>Artas Foundation</p>
-            <p>Yerevan</p>
-          </div>
-        </section>
+        <div class="bio-layout__image hcyn__meta">
+          <section class="hcyn__details" aria-label="Session and studio">
+            <div class="hcyn__session">
+              <p>60 min closed-eyes listening session</p>
+              <p>lying down, no movement</p>
+              <p>max 8 people per session</p>
+              <p>in English</p>
+              <p><br /></p>
+              <p>free participation</p>
+              <p><br /></p>
+            </div>
+            <div class="hcyn__studio">
+              <p>Living Room</p>
+              <p>Artas Foundation</p>
+              <p>Yerevan</p>
+            </div>
+          </section>
+        </div>
       </div>
 
       <div class="bio-layout__aside hcyn__video">
@@ -87,8 +89,8 @@ import "../styles/global.css";
     text-underline-offset: 0.12em;
   }
 
-  .hcyn__layout {
-    row-gap: calc(var(--bio-row-gap) / 2.5 * 1.5);
+  .bio-layout.hcyn__layout > .bio-layout__column {
+    gap: calc(var(--bio-row-gap) / 2.5 * 1.5);
   }
 
   .hcyn__title {

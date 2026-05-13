@@ -7,14 +7,14 @@ export const works = [
       {
         type: "subpage",
         label: "detail",
-        slug: "adjustments-to-nothing",
+        slug: "adjustmentstonothing",
       },
     ],
   },
   {
     id: "igja",
-    title: "Collaborations with J. Alvaer & I. Grosseová",
-    years: "2014 - ongoing",
+    title: "IGJA collaborations",
+    years: "Jesper Alvaer & Isabela Grosseová \n 2014 - ongoing",
     links: [
       {
         type: "subpage",

@@ -7,10 +7,10 @@
  * `heroImage` — hero below the list (`RevealImage`; sizing in global.css).
  */
 export const homeEventsPage = {
-  title: "Roman Ne — Home",
+  title: "Roman Ne",
   description:
     "HCYN sessions and events — Roman Ne, sound, attention, spatial situations.",
-  heading: "HCYN events",
+  heading: "HCYN sessions",
   heroImage: {
     src: "/images/hcyn3-high.jpg",
     alt: "Hardcore yoga nidra — session",

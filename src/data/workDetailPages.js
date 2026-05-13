@@ -1,24 +1,28 @@
 /** Optional blocks + SEO overrides per work subpage slug */
 export const workDetailPages = {
-  "adjustments-to-nothing": {
+  adjustmentstonothing: {
     description: "Adjustments to Nothing",
     blocks: [
-      // {
-      //   type: "imageRow",
-      //   images: [
-      //     {
-      //       src: "/images/atn2.jpg",
-      //       alt: "Studio detail",
-      //       orientation: "vertical",
-      //     },
-      //   ],
-      // },
+      {
+        type: "hero",
+        variant: "contained",
+        src: "/images/atn.jpg",
+      },
       {
         type: "divider",
         kind: "header",
         lines: [
-          "Inner and outer merge, sound moves over.",
-          "Design by Anymade Studio Prague",
+          {
+            segments: [
+              "Inner and outer merge, sound moves over.\nRecordings return on their own.\nEach has the same length and erases itself after playback.\n\nDesign by ",
+              {
+                href: "https://anymadestudio.com/",
+                label: "Anymade Studio",
+                external: true,
+              },
+              " Prague",
+            ],
+          },
         ],
       },
     ],
