@@ -16,13 +16,11 @@ export const homeEventsPage = {
     alt: "Hardcore yoga nidra — session",
   },
   upcoming: [
-    { line: "20 June 2026 — Zurich", href: "/hcyn" },
-    { line: "13 June 2026 — Zurich", href: "/hcyn" },
-    { line: "6 June 2026 — Zurich", href: "/hcyn" },
+    { line: "July 2026 — Bangkok" },
+    { line: "6 - 20 June 2026 — Zurich", href: "/hcyn" },
     { line: "29 May 2026 — Yerevan", href: "/hcyn-yerevan" },
   ],
   past: [
-    { line: "14 March 2025 — Bern" },
     { line: "20 December 2025 — Chiang Mai" },
     { line: "12 December 2025 — CMDW" },
     { line: "16 May 2025 — Laax" },
