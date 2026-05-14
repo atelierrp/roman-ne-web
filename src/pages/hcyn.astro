@@ -26,13 +26,19 @@ import "../styles/global.css";
           <p class="hcyn__cta-wrap">
             <a
               class="hcyn__cta"
-              href="https://wa.me/41772665832"
+              href="https://forms.gle/Y2U8zsY1VhuiqLAAA"
               target="_blank"
               rel="noopener noreferrer"
             >
-              → reserve via WhatsApp
+              → registration form
             </a>
           </p>
+          <div class="hcyn__register-note" role="note">
+            <p>
+              *Additional sessions may be possible depending on availability. If
+              none of the listed dates work for you, mention it in the form.
+            </p>
+          </div>
         </div>
 
         <div class="bio-layout__image hcyn__meta">
@@ -46,6 +52,7 @@ import "../styles/global.css";
               <p>20 CHF</p>
               <p>HCYN Studio</p>
               <p>Zypressenstrasse 60, Zurich</p>
+              <p>077 266 58 32</p>
             </div>
             <div class="hcyn__studio">
               <p>
@@ -140,6 +147,22 @@ import "../styles/global.css";
 
   .hcyn__cta-wrap {
     margin: clamp(1rem, 3vw, 1.5rem) 0 0;
+  }
+
+  .hcyn__register-note {
+    margin: 0.55em 0 0;
+    max-width: 24em;
+    font-size: clamp(0.68rem, 2.2vw, 0.76rem);
+    line-height: inherit;
+    opacity: 0.68;
+  }
+
+  .hcyn__register-note p {
+    margin: 0;
+  }
+
+  .hcyn__register-note p + p {
+    margin-top: 0.35em;
   }
 
   .hcyn__video :global(.block--hero) {
