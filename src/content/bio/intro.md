@@ -6,7 +6,7 @@ imageAlt: "Atelier Zurich"
 ---
 
 Roman Ne works with sound, silence, and attention.  
-His practice Hardcore Yoga Nidra (HCYN), an artistic reinterpretation of Yoga Nidra, explores shared perceptual states through voice, spatial sound, and guided listening.
+His practice Hardcore Yoga Nidra (HCYN), explores shared perceptual states through voice, spatial sound, and guided listening.
 
 Recent work includes Adjustments to Nothing, a mobile app for one-time future playback, without archive or timeline.
 
