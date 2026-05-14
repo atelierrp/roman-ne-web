@@ -430,6 +430,40 @@ li {
   min-width: 0;
 }
 
+.bio-layout__links {
+  max-width: 720px;
+  width: 100%;
+}
+
+.bio-layout__links__title {
+  margin: 0 0 1lh;
+  font-size: inherit;
+  font-weight: normal;
+  line-height: inherit;
+  text-transform: uppercase;
+}
+
+.bio-layout__links__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+}
+
+.bio-layout__links__list > li {
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+}
+
+.bio-layout__links a {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* Aside “Full CV” etc.: emphasis face for inline links */
 .bio-layout__aside .block--divider__links a,
 .bio-layout__aside .block--divider__links .block--modal__trigger,

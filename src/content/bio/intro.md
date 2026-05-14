@@ -6,11 +6,10 @@ imageAlt: "Atelier Zurich"
 ---
 
 Roman Ne works with sound, silence, and attention.  
-He develops [Hardcore Yoga Nidra](/hardcoreyoganidra) (HCYN), an artistic reinterpretation of Yoga Nidra exploring shared
-perceptual states.
+His practice Hardcore Yoga Nidra (HCYN), an artistic reinterpretation of Yoga Nidra, explores shared perceptual states through voice, spatial sound, and guided listening.
 
-Recent work includes [Adjustments to Nothing](/adjustmentstonothing), a mobile app for one-time future playback, without archive or timeline.
+Recent work includes Adjustments to Nothing, a mobile app for one-time future playback, without archive or timeline.
 
-Since 2014, he has collaborated with [Jesper Alvaer and Isabela Grosseová](/collaboration-igja).
+Since 2014, he has collaborated with Jesper Alvaer and Isabela Grosseová. Previous projects include Fiordmoss and work around Berlin’s ACUD Macht Neu scene.
 
 Based in Zurich, between Europe and Asia.
