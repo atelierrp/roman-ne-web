@@ -7,7 +7,11 @@ export default defineConfig({
   site: "https://roman-ne.com",
   output: "static",
   trailingSlash: "never",
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes("/hcyn-proposal"),
+    }),
+  ],
   redirects: {
     "/home": "/",
     "/current": "/hardcoreyoganidra",

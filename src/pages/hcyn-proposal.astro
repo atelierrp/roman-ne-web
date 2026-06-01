@@ -1,0 +1,22 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlockStack from "../components/BlockStack.astro";
+import SiteNav from "../components/SiteNav.astro";
+import { hcynProposalPage } from "../data/hcynProposalPage.js";
+import "../styles/global.css";
+---
+
+<BaseLayout title={hcynProposalPage.title} noindex>
+  <main class="site-main">
+    <SiteNav />
+    <div class="site-content" id="site-content">
+      <article>
+        <div class="work-header">
+          <h1>{hcynProposalPage.heading.title}</h1>
+          <p>{hcynProposalPage.heading.description}</p>
+        </div>
+        <BlockStack blocks={hcynProposalPage.blocks} />
+      </article>
+    </div>
+  </main>
+</BaseLayout>

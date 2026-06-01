@@ -696,6 +696,20 @@ li {
   margin-top: calc((var(--line-height-body) - 1) * 1em);
 }
 
+.block--divider__list {
+  margin: 0;
+  padding-left: 1.25em;
+  list-style: disc;
+}
+
+.block--divider__list-item {
+  padding-left: 0.25em;
+}
+
+.block--divider__list-item + .block--divider__list-item {
+  margin-top: calc((var(--line-height-body) - 1) * 1em);
+}
+
 .block--divider__links {
   margin: 0;
   padding: 0;

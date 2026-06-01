@@ -1,6 +1,6 @@
 ---
 /**
- * Text block (divider): `textType` (or legacy `kind`) — "header" | "title" | "text"
+ * Text block (divider): `textType` (or legacy `kind`) — "header" | "title" | "text" | "list"
  * - header → margin-bottom var(--block-margin-after-divider-header) (¹⁄₁₀ large gap)
  * - title → var(--block-margin-after-divider) (⅕ large gap)
  * - text → stack default (var(--block-margin-after-images); 40× --space-unit)
@@ -17,8 +17,11 @@ import SiteLink from "../SiteLink.astro";
 const { lines = [], links = [], kind = "title", textType } = Astro.props;
 const raw = textType ?? kind;
 const segment =
-  raw === "header" || raw === "title" || raw === "text" ? raw : "title";
+  raw === "header" || raw === "title" || raw === "text" || raw === "list"
+    ? raw
+    : "title";
 const isText = segment === "text";
+const isList = segment === "list";
 const isHeader = segment === "header";
 ---
 
@@ -28,41 +31,77 @@ const isHeader = segment === "header";
     "block--divider",
     isText
       ? "block--divider--text"
-      : isHeader
-        ? "block--divider--header"
-        : "block--divider--title",
+      : isList
+        ? "block--divider--list"
+        : isHeader
+          ? "block--divider--header"
+          : "block--divider--title",
   ]}
 >
   {
-    lines.map((line) => {
-      if (typeof line === "string") {
-        return <p class="block--divider__line">{line}</p>;
-      }
-      if (
-        line &&
-        typeof line === "object" &&
-        "segments" in line &&
-        Array.isArray(line.segments)
-      ) {
-        return (
-          <p class="block--divider__line">
-            {line.segments.map((seg) =>
-              typeof seg === "string" ? (
-                seg
-              ) : (
-                <SiteLink
-                  href={seg.href}
-                  label={seg.label}
-                  external={Boolean(seg.external)}
-                  variant={seg.variant ?? "default"}
-                />
-              ),
-            )}
-          </p>
-        );
-      }
-      return <p class="block--divider__line">{String(line)}</p>;
-    })
+    isList ? (
+      <ul class="block--divider__list">
+        {lines.map((line) => {
+          if (typeof line === "string") {
+            return <li class="block--divider__list-item">{line}</li>;
+          }
+          if (
+            line &&
+            typeof line === "object" &&
+            "segments" in line &&
+            Array.isArray(line.segments)
+          ) {
+            return (
+              <li class="block--divider__list-item">
+                {line.segments.map((seg) =>
+                  typeof seg === "string" ? (
+                    seg
+                  ) : (
+                    <SiteLink
+                      href={seg.href}
+                      label={seg.label}
+                      external={Boolean(seg.external)}
+                      variant={seg.variant ?? "default"}
+                    />
+                  ),
+                )}
+              </li>
+            );
+          }
+          return <li class="block--divider__list-item">{String(line)}</li>;
+        })}
+      </ul>
+    ) : (
+      lines.map((line) => {
+        if (typeof line === "string") {
+          return <p class="block--divider__line">{line}</p>;
+        }
+        if (
+          line &&
+          typeof line === "object" &&
+          "segments" in line &&
+          Array.isArray(line.segments)
+        ) {
+          return (
+            <p class="block--divider__line">
+              {line.segments.map((seg) =>
+                typeof seg === "string" ? (
+                  seg
+                ) : (
+                  <SiteLink
+                    href={seg.href}
+                    label={seg.label}
+                    external={Boolean(seg.external)}
+                    variant={seg.variant ?? "default"}
+                  />
+                ),
+              )}
+            </p>
+          );
+        }
+        return <p class="block--divider__line">{String(line)}</p>;
+      })
+    )
   }
   {
     links.length > 0 && (
