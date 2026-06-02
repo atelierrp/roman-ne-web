@@ -4,6 +4,9 @@ export const hcynProposalPage = {
   title: "Roman Ne — Hardcore Yoga Nidra (HCYN)",
   description:
     "Proposal and presentation information for Hardcore Yoga Nidra (HCYN).",
+  ogTitle: "HCYN — Black Square",
+  ogDescription:
+    "Participatory closed-eyes listening experience by Roman Ne.",
   heading: {
     title: "Hardcore Yoga Nidra",
     description: "Black Square: Proposal & Presentation Information",

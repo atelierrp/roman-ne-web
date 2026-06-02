@@ -6,7 +6,12 @@ import { hcynProposalPage } from "../data/hcynProposalPage.js";
 import "../styles/global.css";
 ---
 
-<BaseLayout title={hcynProposalPage.title} noindex>
+<BaseLayout
+  title={hcynProposalPage.title}
+  noindex
+  ogTitle={hcynProposalPage.ogTitle}
+  ogDescription={hcynProposalPage.ogDescription}
+>
   <main class="site-main">
     <SiteNav />
     <div class="site-content" id="site-content">
