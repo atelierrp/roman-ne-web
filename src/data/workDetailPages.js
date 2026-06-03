@@ -21,6 +21,12 @@ export const workDetailPages = {
                 external: true,
               },
               " Prague",
+              "\n",
+              {
+                href: "https://adjustmentstonothing.com/",
+                label: "adjustmentstonothing.com",
+                external: true,
+              },
             ],
           },
         ],
