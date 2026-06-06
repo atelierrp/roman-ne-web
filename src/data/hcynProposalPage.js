@@ -110,11 +110,11 @@ export const hcynProposalPage = {
           alt: "Hardcore Yoga Nidra presentation, Yerevan 2026",
           orientation: "vertical",
         },
-        // {
-        //   src: "/images/proposal/hcyn-02.jpg",
-        //   alt: "Hardcore Yoga Nidra presentation, Yerevan 2026",
-        //   orientation: "vertical",
-        // },
+        {
+          src: "/images/proposal/hcyn-02.jpg",
+          alt: "Hardcore Yoga Nidra presentation, Yerevan 2026",
+          orientation: "vertical",
+        },
       ],
     },
     {
@@ -129,7 +129,7 @@ export const hcynProposalPage = {
       type: "imageRow",
       images: [
         {
-          src: "/images/proposal/hcyn-04.jpg",
+          src: "/images/proposal/hcyn-05.jpg",
           alt: "Hardcore Yoga Nidra studio, Zurich 2026",
           orientation: "vertical",
         },
