@@ -34,6 +34,65 @@ export const hcynProposalPage = {
     },
     {
       type: "divider",
+      lines: ["Selected Presentations"],
+    },
+    {
+      type: "textBlock",
+      kind: "list",
+      lines: [
+        "Studio 88 Artist Residency, Chiang Mai, Thailand (2025)",
+        "Living Room / Artas Foundation, Yerevan, Armenia (2026), as part of the ZHdK Arts and International Cooperation programme",
+        "HCYN Studio, Zurich, Switzerland (2026–ongoing)",
+      ],
+    },
+    {
+      type: "hero",
+      variant: "full",
+      src: "/images/hcyn4.jpg",
+      alt: "Hardcore Yoga Nidra presentation, Chiang Mai 2025",
+    },
+    {
+      type: "imageRow",
+      images: [
+        {
+          src: "/images/proposal/hcyn-01.jpg",
+          alt: "Hardcore Yoga Nidra presentation, Chiang Mai 2025",
+          orientation: "vertical",
+        },
+        {
+          src: "/images/proposal/hcyn-03.jpg",
+          alt: "Hardcore Yoga Nidra presentation, Chiang Mai 2025",
+          orientation: "vertical",
+        },
+        {
+          src: "/images/proposal/hcyn-05.jpg",
+          alt: "Hardcore Yoga Nidra presentation, Chiang Mai 2025",
+          orientation: "vertical",
+        },
+      ],
+    },
+    {
+      type: "divider",
+      kind: "header",
+      lines: ["Live Listening Format"],
+    },
+    {
+      type: "textBlock",
+      kind: "text",
+      lines: [
+        "Currently presented as a small-group session. The setup is designed for studios, galleries, community spaces and small venues.",
+      ],
+    },
+    {
+      type: "hero",
+      mediaKind: "youtube",
+      variant: "contained",
+      orientation: "vertical",
+      youtubeUrl: "https://youtube.com/shorts/DAL9C6LonkA?si=8j6WekMoxNtAYGq4",
+      alt: "Audio preview — setup for small live session",
+    },
+    {
+      type: "divider",
       kind: "header",
       lines: ["Duration and capacity"],
     },
@@ -64,75 +123,6 @@ export const hcynProposalPage = {
         "If floor mats, carpets, cushions, or other suitable floor surfaces are not available at the venue, participants may be asked to bring their own yoga mat, blanket, or cushion.",
         "Access to power is required.",
         "The artist can provide the complete sound setup. If the venue already has a suitable sound system, particularly one capable of reproducing low frequencies, it may be incorporated into the presentation.",
-      ],
-    },
-    {
-      type: "divider",
-      lines: ["Selected Presentations"],
-    },
-    {
-      type: "divider",
-      kind: "header",
-      lines: [
-        "Chiang Mai (2025, Thailand)",
-        "Presented as part of the Studio 88 Artist Residency programme.",
-      ],
-    },
-    {
-      type: "imageRow",
-      images: [
-        {
-          src: "/images/proposal/hcyn-01.jpg",
-          alt: "Hardcore Yoga Nidra presentation, Chiang Mai 2025",
-          orientation: "vertical",
-        },
-      ],
-    },
-    {
-      type: "hero",
-      variant: "full",
-      src: "/images/hcyn4.jpg",
-      alt: "Hardcore Yoga Nidra presentation, Chiang Mai 2025",
-    },
-    {
-      type: "divider",
-      kind: "header",
-      lines: [
-        "Yerevan (2026, Armenia)",
-        "Presented at Living Room / Artas Foundation as part of the ZHdK Arts and International Cooperation programme.",
-      ],
-    },
-    {
-      type: "imageRow",
-      images: [
-        {
-          src: "/images/proposal/hcyn-03.jpg",
-          alt: "Hardcore Yoga Nidra presentation, Yerevan 2026",
-          orientation: "vertical",
-        },
-        {
-          src: "/images/proposal/hcyn-02.jpg",
-          alt: "Hardcore Yoga Nidra presentation, Yerevan 2026",
-          orientation: "vertical",
-        },
-      ],
-    },
-    {
-      type: "divider",
-      kind: "header",
-      lines: [
-        "Zurich (2026, Switzerland)",
-        "Ongoing studio sessions and public presentations at HCYN Studio.",
-      ],
-    },
-    {
-      type: "imageRow",
-      images: [
-        {
-          src: "/images/proposal/hcyn-05.jpg",
-          alt: "Hardcore Yoga Nidra studio, Zurich 2026",
-          orientation: "vertical",
-        },
       ],
     },
     {

@@ -317,6 +317,11 @@ li {
   margin-inline: auto;
 }
 
+.block--hero--contained .block--hero__media--video.is-vertical {
+  max-width: 100%;
+  margin-inline: 0;
+}
+
 .block--hero__media--video {
   position: relative;
 }
@@ -331,6 +336,27 @@ li {
 
 .block--hero__iframe {
   aspect-ratio: 16 / 9;
+}
+
+.block--hero__media--video.is-vertical {
+  width: auto;
+  max-width: 100%;
+  margin-inline: 0;
+}
+
+.block--hero__media--video.is-vertical .block--hero__iframe,
+.block--hero__media--video.is-vertical .block--hero__video {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  max-width: 100%;
+}
+
+@media (min-width: 769px) {
+  .block--hero__media--video.is-vertical .block--hero__iframe,
+  .block--hero__media--video.is-vertical .block--hero__video {
+    width: min(100%, calc(90dvh * 9 / 16));
+    max-height: 90dvh;
+  }
 }
 
 .block__placeholder {

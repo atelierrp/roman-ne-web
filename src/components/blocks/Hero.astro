@@ -15,7 +15,11 @@ const {
   videoSrc = "",
   videoPoster = "",
   header,
+  orientation = "horizontal",
 } = Astro.props;
+
+const isVertical =
+  orientation === "vertical" || orientation === "portrait";
 
 const hasHeader =
   header &&
@@ -101,7 +105,13 @@ const youtubeEmbed = mediaKind === "youtube" ? youtubeEmbedUrl(youtubeUrl) : "";
   {
     mediaKind === "youtube" ? (
       youtubeEmbed ? (
-        <div class="block--hero__media block--hero__media--video">
+        <div
+          class:list={[
+            "block--hero__media",
+            "block--hero__media--video",
+            isVertical && "is-vertical",
+          ]}
+        >
           <iframe
             class="block--hero__iframe"
             src={youtubeEmbed}
@@ -116,7 +126,13 @@ const youtubeEmbed = mediaKind === "youtube" ? youtubeEmbedUrl(youtubeUrl) : "";
       )
     ) : mediaKind === "videoFile" ? (
       videoSrc ? (
-        <div class="block--hero__media block--hero__media--video">
+        <div
+          class:list={[
+            "block--hero__media",
+            "block--hero__media--video",
+            isVertical && "is-vertical",
+          ]}
+        >
           <video
             class="block--hero__video"
             controls
