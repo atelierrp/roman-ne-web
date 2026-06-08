@@ -19,10 +19,6 @@ export const hcynProposalPage = {
         "\n",
         "",
         "",
-        "Black Square is a 60-minute participatory closed-eyes listening sequence. Participants lie down or sit with eyes closed while voice, low frequencies, silence, and spatial sound gradually shift attention. The work unfolds collectively while leaving space for individual interpretation and experience.",
-        "",
-        "\n",
-        "Language: English",
       ],
     },
     {
@@ -31,6 +27,16 @@ export const hcynProposalPage = {
       variant: "full",
       youtubeUrl: currentProject.youtubeUrl,
       alt: "Black Square — hardcore yoga nidra",
+    },
+    {
+      type: "textBlock",
+      kind: "text",
+      lines: [
+        "Black Square is a 60-minute participatory closed-eyes listening sequence. Participants lie down or sit with eyes closed while voice, low frequencies, silence, and spatial sound gradually shift attention. The work unfolds collectively while leaving space for individual interpretation and experience.",
+        "",
+        "\n",
+        "Language: English",
+      ],
     },
     {
       type: "divider",
