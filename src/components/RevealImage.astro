@@ -10,6 +10,10 @@ const {
   emptyLabel = "Image placeholder",
   imgWidth,
   imgHeight,
+  srcset = "",
+  sizes = "",
+  loading = "lazy",
+  fetchPriority,
 } = Astro.props;
 ---
 
@@ -22,9 +26,12 @@ const {
             class="reveal-image__img"
             src={src}
             alt={alt}
+            {...(srcset ? { srcset } : {})}
+            {...(sizes ? { sizes } : {})}
             {...(imgWidth != null ? { width: imgWidth } : {})}
             {...(imgHeight != null ? { height: imgHeight } : {})}
-            loading="lazy"
+            loading={loading}
+            {...(fetchPriority ? { fetchpriority: fetchPriority } : {})}
             decoding="async"
           />
         </div>
