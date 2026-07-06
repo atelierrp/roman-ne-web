@@ -47,8 +47,9 @@ export const hcynProposalPage = {
       kind: "list",
       lines: [
         "Studio 88 Artist Residency, Chiang Mai, Thailand (2025)",
-        "Living Room / Artas Foundation, Yerevan, Armenia (2026), as part of the ZHdK Arts and International Cooperation programme",
-        "HCYN Studio, Zurich, Switzerland (2026–ongoing)",
+        "Artas Foundation (Living Room), Yerevan, Armenia (2026), as part of the ZHdK Arts and International Cooperation programme",
+        "Chiang Mai Design Week, Thailand  (2025)",
+        "HCYN Studiom Zurich, Switzerland (2026–ongoing)",
       ],
     },
     {
