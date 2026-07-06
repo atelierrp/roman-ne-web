@@ -1,10 +1,10 @@
 import { currentProject } from "./current.js";
 
 export const hcynProposalPage = {
-  title: "Roman Ne — Hardcore Yoga Nidra (HCYN)",
+  title: "Roman Ne — Hardcore Yoga Nidra",
   description:
     "Proposal and presentation information for Hardcore Yoga Nidra (HCYN).",
-  ogTitle: "HCYN — Black Square",
+  ogTitle: "Hardcore Yoga Nidra",
   ogDescription: "Participatory closed-eyes listening session.",
   heading: {
     title: "Hardcore Yoga Nidra",
@@ -15,7 +15,7 @@ export const hcynProposalPage = {
       type: "textBlock",
       kind: "text",
       lines: [
-        "\nHardcore Yoga Nidra (HCYN) is an ongoing artistic practice by Roman Ne exploring attention, perception, and shared experience through voice, silence, spatial sound, and listening. Through guided listening sequences, participants are invited to explore the relationship between body, imagination, and environment.",
+        "\nHardcore Yoga Nidra is an ongoing artistic practice by Roman Ne exploring attention, perception, and shared experience through voice, silence, spatial sound, and listening. Through guided listening sequences, participants are invited to explore the relationship between body, imagination, and environment.",
         "\n",
         "",
         "",
