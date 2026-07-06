@@ -66,7 +66,12 @@ export const hcynProposalPage = {
           orientation: "vertical",
         },
         {
-          src: "/images/proposal/hcyn-03.jpg",
+          src: "/images/proposal/hcyn-03b.jpg",
+          alt: "Hardcore Yoga Nidra presentation, Yerevan 2025",
+          orientation: "vertical",
+        },
+        {
+          src: "/images/proposal/haan/haan_03.jpg",
           alt: "Hardcore Yoga Nidra presentation, Yerevan 2025",
           orientation: "vertical",
         },

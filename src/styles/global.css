@@ -351,7 +351,7 @@ li {
   max-width: 100%;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   .block--hero__media--video.is-vertical .block--hero__iframe,
   .block--hero__media--video.is-vertical .block--hero__video {
     width: min(100%, calc(90dvh * 9 / 16));
@@ -634,7 +634,7 @@ li {
   max-height: var(--row-image-max-height);
 }
 
-/* Two+ portrait cells: set height on the img (not an empty-tall wrapper). max-height alone never scales up. */
+/* Two+ portrait cells in the same row: equal height. Lone wrapped cell (e.g. 3rd in a 2-col grid) stays natural height. */
 .block--image-row__grid--vertical-row:has(> .block--image-row__cell:nth-child(2))
   .block--image-row__cell.is-vertical
   .reveal-image__img {
@@ -644,6 +644,15 @@ li {
   object-fit: contain;
 }
 
+.block--image-row__grid--vertical-row:has(> .block--image-row__cell:nth-child(2))
+  .block--image-row__cell.is-vertical:last-child:nth-child(odd)
+  .reveal-image__img {
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: var(--row-image-max-height);
+}
+
 .bio-layout__image
   .block--image-row__grid--vertical-row
   .block--image-row__cell.is-vertical
@@ -651,22 +660,29 @@ li {
   max-width: min(400px, 100%);
 }
 
-@media (max-width: 768px) {
+/* Tablet + phone: stack portrait rows in one column (avoids 85vh paired cells on iPad). */
+@media (max-width: 1024px) {
   .block--image-row__grid {
     grid-template-columns: 1fr;
+    justify-items: stretch;
   }
 
   .block--image-row__grid--vertical-row {
     grid-template-columns: 1fr;
     row-gap: var(--block-margin-after-images);
+    justify-items: stretch;
   }
 
   .block--image-row__grid--vertical-row .block--image-row__cell.is-vertical {
     width: 100%;
     max-width: 100%;
+    justify-self: stretch;
   }
 
-  /* Full column width: intrinsic width:auto left empty band in 1fr cells */
+  .block--image-row__grid--vertical-row .block--image-row__cell.is-vertical.reveal-image--intrinsic {
+    width: 100%;
+  }
+
   .block--image-row__grid--vertical-row .block--image-row__cell.is-vertical .reveal-image__media {
     width: 100%;
     max-width: 100%;
@@ -677,8 +693,9 @@ li {
     width: 100%;
     max-width: 100%;
     height: auto;
-    max-height: var(--row-image-max-height);
+    max-height: none;
     object-fit: contain;
+    object-position: left center;
   }
 
   .block--image-row__grid--vertical-row:has(> .block--image-row__cell:nth-child(2))
@@ -686,7 +703,14 @@ li {
     .reveal-image__img {
     height: auto;
     width: 100%;
-    max-height: var(--row-image-max-height);
+    max-height: none;
+  }
+
+  .block--hero__media--video.is-vertical .block--hero__iframe,
+  .block--hero__media--video.is-vertical .block--hero__video {
+    width: 100%;
+    max-width: min(100%, 22rem);
+    max-height: none;
   }
 }
 
@@ -949,7 +973,7 @@ html[data-nav-scroll-concealed] .site-nav-slot > * {
   object-position: left center;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
   .home-events-page__media figure.home-events__hero.reveal-image {
     width: min(77vw, 2000px) !important;
     max-width: 2000px !important;
