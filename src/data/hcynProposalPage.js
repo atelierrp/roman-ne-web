@@ -67,12 +67,12 @@ export const hcynProposalPage = {
         },
         {
           src: "/images/proposal/hcyn-03.jpg",
-          alt: "Hardcore Yoga Nidra presentation, Chiang Mai 2025",
+          alt: "Hardcore Yoga Nidra presentation, Yerevan 2025",
           orientation: "vertical",
         },
         {
           src: "/images/proposal/hcyn-05b.jpg",
-          alt: "Hardcore Yoga Nidra presentation, Chiang Mai 2025",
+          alt: "Hardcore Yoga Nidra presentation, Zurich 2025",
           orientation: "vertical",
         },
       ],

@@ -13,7 +13,7 @@ export const homeEventsPage = {
   heading: "HCYN sessions",
   heroImage: {
     src: "/images/hcyn3-high.jpg",
-    alt: "Hardcore yoga nidra — session",
+    alt: "Hardcore Yoga Nidra — session",
   },
   upcoming: [
     { line: "TBA — Bangkok" },
