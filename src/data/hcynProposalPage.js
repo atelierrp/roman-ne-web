@@ -2,8 +2,7 @@ import { currentProject } from "./current.js";
 
 export const hcynProposalPage = {
   title: "Roman Ne — Hardcore Yoga Nidra",
-  description:
-    "Proposal and presentation information for Hardcore Yoga Nidra (HCYN).",
+  description: "Proposal and presentation information for Hardcore Yoga Nidra.",
   ogTitle: "Hardcore Yoga Nidra",
   ogDescription: "Participatory closed-eyes listening session.",
   heading: {
