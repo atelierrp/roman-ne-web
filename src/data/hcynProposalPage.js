@@ -71,7 +71,7 @@ export const hcynProposalPage = {
           orientation: "vertical",
         },
         {
-          src: "/images/proposal/hcyn-05.jpg",
+          src: "/images/proposal/hcyn-05b.jpg",
           alt: "Hardcore Yoga Nidra presentation, Chiang Mai 2025",
           orientation: "vertical",
         },
