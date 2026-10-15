@@ -13,7 +13,12 @@ export const cvPage = {
       yearBlocks: [
         {
           year: "2026",
-          lines: ["Adjustments to Nothing"],
+          lines: [
+            "HCYN: Black Square, Bangkok",
+            "HCYN: Black Square, Zurich",
+            "HCYN: Black Square, Yerevan",
+            "Adjustments to Nothing",
+          ],
         },
         {
           year: "2025",

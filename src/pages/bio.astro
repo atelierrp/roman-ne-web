@@ -31,6 +31,26 @@ const imageAlt = introMeta.imageAlt ?? "";
               <IntroContent />
             </div>
           </div>
+          {
+            imageSrc && (
+              <div class="bio-layout__image">
+                <ImageRow
+                  images={[
+                    {
+                      src: imageSrc,
+                      alt: imageAlt,
+                      orientation: "vertical",
+                    },
+                  ]}
+                />
+              </div>
+            )
+          }
+        </div>
+        <div class="bio-layout__aside">
+          <div class="bio-md bio-md--aside">
+            <AsideContent />
+          </div>
           <nav class="bio-layout__links" aria-label="Project links">
             <h2 class="bio-layout__links__title">LINKS</h2>
             <ul class="bio-layout__links__list">
@@ -61,26 +81,6 @@ const imageAlt = introMeta.imageAlt ?? "";
               </li>
             </ul>
           </nav>
-          {
-            imageSrc && (
-              <div class="bio-layout__image">
-                <ImageRow
-                  images={[
-                    {
-                      src: imageSrc,
-                      alt: imageAlt,
-                      orientation: "vertical",
-                    },
-                  ]}
-                />
-              </div>
-            )
-          }
-        </div>
-        <div class="bio-layout__aside">
-          <div class="bio-md bio-md--aside">
-            <AsideContent />
-          </div>
         </div>
       </article>
     </div>

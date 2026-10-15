@@ -1,7 +1,7 @@
 ---
 title: "Roman Ne — Bio"
 description: "Roman Ne works with sound, attention, and spatial situations — bio and background."
-imageSrc: "/images/roman-ne.jpg"
+imageSrc: "/images/roman-ne-bio.jpg"
 imageAlt: "Atelier Zurich"
 ---
 
@@ -10,6 +10,6 @@ His practice Hardcore Yoga Nidra (HCYN), explores shared perceptual states throu
 
 Recent work includes Adjustments to Nothing, a mobile app for one-time future playback, without archive or timeline.
 
-Since 2014, he has collaborated with Jesper Alvaer and Isabela Grosseová. Previous projects include Fiordmoss and work around Berlin’s ACUD Macht Neu scene.
+Since 2014, he has collaborated with Jesper Alvaer and Isabela Grosseová. Previous projects include Fiordmoss and work around Berlin’s ACUD Macht Neu Kunsthaus.
 
 Based in Zurich, between Europe and Asia.

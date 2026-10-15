@@ -17,4 +17,16 @@ const bio = defineCollection({
   }),
 });
 
-export const collections = { bio };
+/** Hidden research document (`/cas-research`) — markdown body in `src/content/cas-research/`. */
+const casResearch = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/cas-research" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    ogTitle: z.string().optional(),
+    ogDescription: z.string().optional(),
+    heading: z.string(),
+  }),
+});
+
+export const collections = { bio, casResearch };

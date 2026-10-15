@@ -1,0 +1,52 @@
+---
+import { getEntry, render } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import "../styles/global.css";
+
+const entry = await getEntry("casResearch", "body");
+if (!entry) throw new Error("Missing content collection entry: cas-research/body");
+
+const { data } = entry;
+const { Content } = await render(entry);
+---
+
+<BaseLayout
+  title={data.title}
+  noindex
+  ogTitle={data.ogTitle ?? data.heading}
+  ogDescription={data.ogDescription ?? data.description ?? ""}
+>
+  <main class="site-main">
+    <SiteNav />
+    <div class="site-content" id="site-content">
+      <article class="bio-layout cas-doc">
+        <div class="bio-layout__column">
+          <header class="cas-doc__header">
+            <h1>{data.heading}</h1>
+          </header>
+          <div class="cas-doc__body">
+            <Content />
+          </div>
+        </div>
+        <aside class="bio-layout__aside">
+          <figure class="cas-doc__figure">
+            <img
+              class="cas-doc__img"
+              src="/images/hcyn4.jpg"
+              alt="Previous HCYN installation"
+              width="1484"
+              height="834"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="cas-doc__caption">
+              HCYN session, Chiang Mai, 2026. An earlier approach to shared
+              spatial listening.
+            </figcaption>
+          </figure>
+        </aside>
+      </article>
+    </div>
+  </main>
+</BaseLayout>

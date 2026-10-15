@@ -107,6 +107,20 @@ export const hardcoreyoganidraPage = {
       lines: [
         "Studio 88 Residency, Chiang Mai",
         "Zuitzerland Network State Residency, Laax",
+        "ZHdK CAS, Arts and International Cooperation",
+        "Artasfoundation, Yerevan, Armenia",
+      ],
+    },
+    {
+      type: "divider",
+      kind: "header",
+      lines: [],
+      links: [
+        {
+          href: "https://hardcoreyoganidra.com",
+          label: "hardcoreyoganidra.com",
+          external: true,
+        },
       ],
     },
   ],

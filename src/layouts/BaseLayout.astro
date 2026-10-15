@@ -31,12 +31,6 @@ const ogImageUrl = Astro.site
       }
       html.fonts-ready .page-frame {
         opacity: 1;
-        transition: opacity 0.15s ease-out;
-      }
-      @media (prefers-reduced-motion: reduce) {
-        html.fonts-ready .page-frame {
-          transition: none;
-        }
       }
       @media (scripting: none) {
         .page-frame {
@@ -81,9 +75,14 @@ const ogImageUrl = Astro.site
         function revealFonts() {
           document.documentElement.classList.add("fonts-ready");
         }
-        if (!document.fonts || !document.fonts.load) {
-          revealFonts();
-        } else {
+        function loadFonts() {
+          if (!document.fonts || !document.fonts.load) {
+            revealFonts();
+            return;
+          }
+          if (document.documentElement.classList.contains("fonts-ready")) {
+            return;
+          }
           var t = setTimeout(revealFonts, 3000);
           Promise.all([
             document.fonts.load('400 23px "Greed Regular"'),
@@ -97,6 +96,7 @@ const ogImageUrl = Astro.site
               revealFonts();
             });
         }
+        loadFonts();
       })();
     </script>
     <script is:inline>

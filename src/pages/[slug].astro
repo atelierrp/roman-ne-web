@@ -23,11 +23,17 @@ if (!work) {
 
 const description = extra?.description ?? work.description;
 const blocks = extra?.blocks ?? [];
+const navActiveId =
+  slug === "adjustmentstonothing"
+    ? "adjustments"
+    : typeof slug === "string"
+      ? slug
+      : "";
 ---
 
 <BaseLayout title={`Roman Ne — ${work.title}`} description={description}>
   <main class="site-main">
-    <SiteNav />
+    <SiteNav activeId={navActiveId} />
     <div class="site-content" id="site-content">
       <article>
         <div class="work-header">

@@ -1,5 +1,8 @@
 ## 2026
 
+HCYN: Black Square, Bangkok  
+HCYN: Black Square, Zurich  
+HCYN: Black Square, Yerevan  
 Adjustments to Nothing  
 CAS Arts and International Cooperation, ZHdK (ongoing)  
 
