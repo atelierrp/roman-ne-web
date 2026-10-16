@@ -3,7 +3,7 @@
 HCYN: Black Square, Bangkok  
 HCYN: Black Square, Zurich  
 HCYN: Black Square, Yerevan  
-Adjustments to Nothing  
+Adjustments to Nothing — app release  
 CAS Arts and International Cooperation, ZHdK (ongoing)  
 
 ## 2025

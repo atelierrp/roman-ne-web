@@ -9,7 +9,7 @@ export const cvPage = {
   blocks: [
     {
       type: "cvSection",
-      header: "recent",
+      header: "Recent",
       yearBlocks: [
         {
           year: "2026",
@@ -17,7 +17,7 @@ export const cvPage = {
             "HCYN: Black Square, Bangkok",
             "HCYN: Black Square, Zurich",
             "HCYN: Black Square, Yerevan",
-            "Adjustments to Nothing",
+            "Adjustments to Nothing — app release",
           ],
         },
         {
@@ -74,7 +74,7 @@ export const cvPage = {
     },
     {
       type: "cvSection",
-      header: "residencies & recognitions",
+      header: "Residencies & recognitions",
       yearBlocks: [
         {
           year: "2026",
@@ -107,8 +107,15 @@ export const cvPage = {
     },
     {
       type: "cvSection",
-      header: "professional",
+      header: "Professional",
       yearBlocks: [
+        {
+          year: "2026",
+          lines: [
+            "Founded Adjustments to Nothing Verein,",
+            "a Swiss association exploring memory and impermanence through art",
+          ],
+        },
         {
           year: "2020–2026",
           lines: ["W3F — Research Foundation, Switzerland"],
@@ -125,7 +132,7 @@ export const cvPage = {
     },
     {
       type: "cvSection",
-      header: "education",
+      header: "Education",
       yearBlocks: [
         {
           lines: [

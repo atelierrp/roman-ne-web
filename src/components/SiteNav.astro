@@ -1,16 +1,22 @@
 ---
 /**
- * Primary bar nav.
- * Set `ENABLE_ONGOING_NAV` to true to show Ongoing (sub: projects) instead of Roman Ne.
- * `activeId`: home | hcyn | adjustments | bio | contact
+ * Same bar on every width: Roman Ne, then Ongoing, Bio, Contact.
+ * Narrow screens push Ongoing, Bio, and Contact to the right.
+ * The Ongoing list opens under that item.
+ * `activeId`: home | hcyn | adjustments | listening | bio | contact
  */
-const ENABLE_ONGOING_NAV = false;
+const ENABLE_ONGOING_NAV = true;
 
 const { activeId = "" } = Astro.props;
 
 const homeLink = { id: "home", href: "/", label: "Roman Ne" };
 const ongoingLinks = [
   { id: "hcyn", href: "/hardcoreyoganidra", label: "Hardcore Yoga Nidra" },
+  {
+    id: "listening",
+    href: "/temporary-listening-spaces",
+    label: "Temporary Listening Spaces",
+  },
   {
     id: "adjustments",
     href: "/adjustmentstonothing",
@@ -26,20 +32,16 @@ const ongoingCurrent = ongoingLinks.some((l) => l.id === activeId);
 
 <div class="site-nav-slot">
   <nav class="site-nav site-nav--bar" aria-label="Primary">
-    {
-      !ENABLE_ONGOING_NAV && (
-        <ul class="site-nav__list site-nav__list--brand">
-          <li>
-            <a
-              href={homeLink.href}
-              aria-current={activeId === homeLink.id ? "page" : undefined}
-            >
-              {homeLink.label}
-            </a>
-          </li>
-        </ul>
-      )
-    }
+    <ul class="site-nav__list site-nav__list--brand">
+      <li>
+        <a
+          href={homeLink.href}
+          aria-current={activeId === homeLink.id ? "page" : undefined}
+        >
+          {homeLink.label}
+        </a>
+      </li>
+    </ul>
     <ul class="site-nav__list site-nav__list--pages">
       {
         ENABLE_ONGOING_NAV && (
@@ -49,7 +51,6 @@ const ongoingCurrent = ongoingLinks.some((l) => l.id === activeId);
               "site-nav__item--has-sub",
               ongoingCurrent && "is-current",
             ]}
-            data-nav-sub
           >
             <button
               type="button"
@@ -95,35 +96,49 @@ const ongoingCurrent = ongoingLinks.some((l) => l.id === activeId);
   ENABLE_ONGOING_NAV && (
     <script is:inline>
       (function () {
-        var roots = document.querySelectorAll("[data-nav-sub]");
-        if (!roots.length) return;
+        var item = document.querySelector(".site-nav__item--has-sub");
+        if (!item) return;
+        var trigger = item.querySelector(".site-nav__trigger");
+        if (!trigger) return;
 
-        function setOpen(item, open) {
-          var trigger = item.querySelector(".site-nav__trigger");
+        var phone = window.matchMedia("(max-width: 767px)");
+
+        function setOpen(open) {
           item.classList.toggle("is-open", open);
-          if (trigger)
-            trigger.setAttribute("aria-expanded", open ? "true" : "false");
+          trigger.setAttribute("aria-expanded", open ? "true" : "false");
+          document.documentElement.classList.toggle(
+            "nav-sub-open",
+            open && phone.matches,
+          );
         }
 
-        roots.forEach(function (item) {
-          var trigger = item.querySelector(".site-nav__trigger");
-          if (!trigger) return;
-
-          trigger.addEventListener("click", function (event) {
-            event.preventDefault();
-            event.stopPropagation();
-            setOpen(item, !item.classList.contains("is-open"));
-          });
-
-          item.addEventListener("keydown", function (event) {
-            if (event.key === "Escape") setOpen(item, false);
-          });
+        trigger.addEventListener("click", function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          setOpen(!item.classList.contains("is-open"));
         });
 
         document.addEventListener("click", function (event) {
-          roots.forEach(function (item) {
-            if (!item.contains(event.target)) setOpen(item, false);
-          });
+          if (!item.classList.contains("is-open")) return;
+          if (event.target.closest(".site-nav__sublist a")) return;
+          if (event.target.closest(".site-nav__trigger")) return;
+          setOpen(false);
+        });
+
+        document.addEventListener(
+          "touchmove",
+          function (event) {
+            if (!document.documentElement.classList.contains("nav-sub-open")) {
+              return;
+            }
+            if (event.target.closest(".site-nav__sublist a")) return;
+            event.preventDefault();
+          },
+          { passive: false },
+        );
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key === "Escape") setOpen(false);
         });
       })();
     </script>

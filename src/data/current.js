@@ -6,6 +6,6 @@ export const currentProject = {
   intro:
     "Transitional states of perception, between body and environment, focus and drift, and physical and constructed space.",
   heroAlt: "Project image placeholder",
-  /** Featured HCYN video (modal on project page, embed on home) */
+  /** Featured HCYN video (inline embed on the project page) */
   youtubeUrl: "https://youtu.be/eBnWYTcDTuw",
 };

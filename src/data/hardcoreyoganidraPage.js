@@ -23,8 +23,9 @@ export const hardcoreyoganidraPage = {
       type: "hero",
       // mediaKind: "youtube",
       variant: "full",
-      src: "/images/hcyn1.jpg",
-      alt: currentProject.heroAlt,
+      src: "/images/hcyn-bg.jpg",
+      alt: "People lying on mats in a dim hall during a Hardcore Yoga Nidra session",
+      caption: "Begrüntes Haus, Bangkok 2026",
       // youtubeUrl: "https://youtu.be/eBnWYTcDTuw",
     },
     {
@@ -38,13 +39,13 @@ export const hardcoreyoganidraPage = {
       type: "imageRow",
       images: [
         {
-          src: "/images/hcyn3.jpg",
-          alt: "Studio detail",
+          src: "/images/proposal/hcyn-01.jpg",
+          alt: "Large hall prepared for a Hardcore Yoga Nidra session",
           orientation: "vertical",
         },
         {
-          src: "/images/hcyn2.jpg",
-          alt: "Studio detail",
+          src: "/images/bs-bg.jpg",
+          alt: "Two people lying on mats during a Hardcore Yoga Nidra session",
           orientation: "vertical",
         },
         // { src: "", alt: "Atmospheric space", orientation: "vertical" },
@@ -58,20 +59,13 @@ export const hardcoreyoganidraPage = {
       type: "divider",
       kind: "header",
       lines: ["Black Square", "Chiang Mai, Thailand 2025"],
-      links: [
-        {
-          type: "modal",
-          label: "Watch video",
-          modalKind: "youtube",
-          youtubeUrl: currentProject.youtubeUrl,
-        },
-      ],
     },
     {
       type: "hero",
+      mediaKind: "youtube",
       variant: "full",
-      src: "/images/hcyn4.jpg",
-      alt: "Event documentation",
+      youtubeUrl: currentProject.youtubeUrl,
+      alt: "Hardcore Yoga Nidra, Black Square, Chiang Mai 2025",
     },
     {
       type: "imageRow",
@@ -79,11 +73,6 @@ export const hardcoreyoganidraPage = {
         lines: ["HAAN Hall", "Installation at Chiang Mai Design Week, 2025"],
       },
       images: [
-        {
-          src: "/images/HCYN-haan4.jpg",
-          alt: "Studio detail",
-          orientation: "vertical",
-        },
         {
           src: "/images/HCYN-haan2.jpg",
           alt: "Studio detail",
@@ -108,7 +97,7 @@ export const hardcoreyoganidraPage = {
         "Studio 88 Residency, Chiang Mai",
         "Zuitzerland Network State Residency, Laax",
         "ZHdK CAS, Arts and International Cooperation",
-        "Artasfoundation, Yerevan, Armenia",
+        "artasfoundation, Yerevan, Armenia",
       ],
     },
     {

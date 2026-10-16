@@ -8,17 +8,19 @@ heading: "CAS Research on Temporary Listening Spaces"
 
 This artistic research is being developed within the [CAS Arts and International Cooperation](https://www.zhdk.ch/en/continuingeducation/arts-and-education-525/cas-arts-and-international-cooperation) programme at [Zurich University of the Arts ZHdK](https://www.zhdk.ch/en), which focuses on artistic work in fragile contexts, social transformation and peacebuilding.
 
-The project explores a temporary listening environment that people can enter and leave freely. It combines spatial sound, low frequencies, silence and sparse spoken guidance with surfaces for sitting or lying down. Visitors may rest, walk or listen without being required to close their eyes, remain for a fixed duration or complete a sequence.
+The project explores the creation of temporary listening spaces that people can enter, inhabit and leave. Through sound, silence and minimal spoken guidance, listeners' attention is directed between the body, the surrounding space and listening itself.
 
-## Research question
+The research asks whether such a space could be meaningful when attention is shaped by stress, uncertainty, disruption or absence.
 
-Under what conditions could a listening space like this be relevant, accessible and wanted within a context affected by displacement, instability or prolonged stress?
+Visitors may sit or lie down, keep their eyes open or close them, fall asleep, and remain for as long as they choose. The space can be inhabited individually or collectively. People may enter and leave at any point without needing to complete a sequence. Participation remains voluntary.
 
-The work is an artistic and ethical inquiry. It does not present itself as therapy or assume that sound and silence are inherently calming.
+The space is intended to offer a temporary sense of rest, ease or orientation. These are aims of the research rather than promised outcomes, and each person may experience the space differently.
 
 ## Background
 
-The research develops from Hardcore Yoga Nidra HCYN, an artistic practice using voice, sound, silence and guided attention. A point of departure was a series of sessions in Yerevan attended by people displaced from Nagorno-Karabakh alongside other participants. These sessions informed the current research but were not a specifically adapted intervention.
+The research grows out of Hardcore Yoga Nidra (HCYN), an artistic practice developed through installations and listening sessions in different social and spatial contexts, particularly in Switzerland and Thailand.
+
+A point of departure for the present research was a series of sessions held in Yerevan and attended by people displaced from Nagorno-Karabakh alongside other participants. These sessions raised questions about how HCYN might be situated in contexts shaped by displacement, but were not specifically adapted interventions.
 
 ## Consultants
 

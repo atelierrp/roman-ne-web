@@ -22,6 +22,7 @@ if (!work) {
 }
 
 const description = extra?.description ?? work.description;
+const subtitle = extra?.subtitle ?? work.years;
 const blocks = extra?.blocks ?? [];
 const navActiveId =
   slug === "adjustmentstonothing"
@@ -38,7 +39,7 @@ const navActiveId =
       <article>
         <div class="work-header">
           <h1>{work.title}</h1>
-          <p>{work.years}</p>
+          <p>{subtitle}</p>
           <p>{work.description}</p>
         </div>
         {

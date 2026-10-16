@@ -1,0 +1,74 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import "../styles/global.css";
+---
+
+<BaseLayout
+  title="Roman Ne — Temporary Listening Spaces"
+  description="Ongoing artistic research into temporary listening spaces, 2026–2027."
+>
+  <main class="site-main">
+    <SiteNav activeId="listening" />
+    <div class="site-content" id="site-content">
+      <article class="bio-layout cas-doc">
+        <div class="bio-layout__column">
+          <header class="cas-doc__header">
+            <h1>Temporary Listening Spaces</h1>
+          </header>
+          <div class="cas-doc__body">
+            <p>
+              Ongoing artistic research, 2026–2027<br />
+              Developed within the CAS Arts and International Cooperation programme
+              at Zurich University of the Arts (ZHdK).
+            </p>
+            <p></p>
+            <p>
+              Temporary Listening Spaces explores listening environments that
+              people can enter, inhabit and leave freely. Through sound, silence
+              and minimal spoken guidance, the work directs attention between
+              the body, the surrounding space and listening itself.
+            </p>
+            <p>
+              The project asks whether such a space could offer a temporary
+              sense of rest, ease or orientation when attention is shaped by
+              stress, uncertainty, disruption or absence.
+            </p>
+            <p>
+              A point of departure for the research was a series of listening
+              sessions held in Yerevan, attended by people displaced from
+              Nagorno-Karabakh alongside other participants. The sessions were
+              not specifically adapted interventions, but raised questions about
+              how listening spaces might be developed responsibly in contexts
+              shaped by displacement.
+            </p>
+            <p>
+              The work is an artistic and ethical inquiry. It does not present
+              itself as therapy or assume that sound and silence are inherently
+              calming.
+            </p>
+            <p>Currently in research and prototype development.</p>
+            <p><a href="/contact">Contact</a></p>
+          </div>
+        </div>
+        <aside class="bio-layout__aside">
+          <figure class="cas-doc__figure">
+            <img
+              class="cas-doc__img"
+              src="/images/yerevan.jpg"
+              alt="A figure seen through frosted glass in a listening space"
+              width="1500"
+              height="2000"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="cas-doc__caption">
+              HCYN listening space, artasfoundation (Living Room)<br />
+              Yerevan, Armenia 2026
+            </figcaption>
+          </figure>
+        </aside>
+      </article>
+    </div>
+  </main>
+</BaseLayout>

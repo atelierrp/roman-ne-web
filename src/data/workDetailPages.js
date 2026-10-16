@@ -2,11 +2,13 @@
 export const workDetailPages = {
   adjustmentstonothing: {
     description: "Adjustments to Nothing",
+    subtitle: "Mobile app",
     blocks: [
       {
         type: "hero",
         variant: "contained",
-        src: "/images/atn.jpg",
+        src: "/images/atn-model.jpg",
+        alt: "Adjustments to Nothing on three phones",
       },
       {
         type: "divider",
@@ -14,7 +16,7 @@ export const workDetailPages = {
         lines: [
           {
             segments: [
-              "Inner and outer merge, sound moves over.\nRecordings return on their own.\nEach has the same length and erases itself after playback.\n\nDesign by ",
+              "Recordings become immediately inaccessible.\nThey return for a one-time playback before deleting themselves.\n\nA simple interface between worlds.\n\nDesign by ",
               {
                 href: "https://anymadestudio.com/",
                 label: "Anymade Studio",
