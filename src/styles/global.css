@@ -79,8 +79,11 @@
   --bio-column-gap: calc(var(--block-margin-after-images) / 3);
   --bio-row-gap: var(--block-margin-after-images);
 
-  /* CV (cvSection): space after whole section vs between year blocks */
-  --cv-section-margin-bottom: var(--block-margin-after-images);
+  /* CV sections: visual gap from the nav line to the first heading */
+  --cv-section-margin-bottom: calc(
+    var(--site-nav-fixed-clearance) - env(safe-area-inset-top, 0px) - 20px - 1em +
+      var(--page-content-padding-top)
+  );
   --cv-year-block-margin-bottom: calc(20 / 3 * var(--space-unit));
 
   /* Hero when variant is "contained" */
@@ -467,7 +470,7 @@ li {
   font-size: inherit;
   font-weight: normal;
   line-height: inherit;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .bio-layout__links__list {
@@ -1478,6 +1481,10 @@ html:has(.site-content--contact) body {
 
 .work-header {
   margin-bottom: var(--block-margin-after-header-text);
+}
+
+.work-header--cv {
+  margin-bottom: var(--cv-section-margin-bottom);
 }
 
 .work-header h1 + p {

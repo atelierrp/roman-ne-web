@@ -6,6 +6,13 @@ export const cvPage = {
   title: "Roman Ne — CV",
   description:
     "Selected works, exhibitions, residencies, professional experience, and education.",
+  heading: {
+    title: "CV",
+    lines: [
+      "Roman Ne (artist name of Roman Prikryl)",
+      "Born 1985 in the Czech Republic, based in Zurich, Switzerland.",
+    ],
+  },
   blocks: [
     {
       type: "cvSection",

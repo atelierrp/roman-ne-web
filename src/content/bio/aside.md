@@ -13,4 +13,4 @@ Studio88 Residency, Doi Saket
 Skopje / Delay and Recognition (film)  
 Zuitzerland Network State Residency, Laax  
 
-[FULL CV](/cv)
+<a class="external-link--arrow" href="/cv">Full CV</a>

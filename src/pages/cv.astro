@@ -11,6 +11,10 @@ import "../styles/global.css";
     <SiteNav />
     <div class="site-content" id="site-content">
       <article>
+        <div class="work-header work-header--cv">
+          <h1>{cvPage.heading.title}</h1>
+          {cvPage.heading.lines.map((line) => <p>{line}</p>)}
+        </div>
         <BlockStack blocks={cvPage.blocks} />
       </article>
     </div>

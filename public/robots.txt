@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /docs/Roman_Ne_ZHdK_Research_Listening_Spaces.pdf
 
 Sitemap: https://roman-ne.com/sitemap-index.xml

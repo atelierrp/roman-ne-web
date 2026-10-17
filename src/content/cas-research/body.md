@@ -43,7 +43,7 @@ Mintralux “Miko” Danklang — Psychology, sound healing, and community engag
 
 ## Full working proposal
 
-<a class="external-link--arrow" href="#">See full proposal</a>
+<a class="external-link--arrow" href="/docs/Roman_Ne_ZHdK_Research_Listening_Spaces.pdf" target="_blank" rel="noopener noreferrer">See full proposal</a>
 
 **Contact**  
 [contact@roman-ne.com](mailto:contact@roman-ne.com)
