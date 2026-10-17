@@ -31,11 +31,14 @@ export default defineConfig({
     sitemap({
       filter: (page) =>
         !page.includes("/hcyn-proposal") &&
-        !page.includes("/cas-research"),
+        !page.includes("/cas-research") &&
+        !page.includes("/research-listening-spaces"),
     }),
   ],
   redirects: {
     "/home": "/",
     "/current": "/hardcoreyoganidra",
+    "/temporary-listening-spaces": "/listening-spaces",
+    "/cas-research": "/research-listening-spaces",
   },
 });

@@ -1412,8 +1412,25 @@ html:has(.site-content--contact) body {
 .block--image-row__header,
 .block--hero__header,
 .block--cv-section__body {
-  font-size: 0.85em;
+  font-size: 1em;
   line-height: 1.45;
+}
+
+@media (min-width: 768px) {
+  .cas-doc__body,
+  .work-header p,
+  .block--divider--text,
+  .block--divider--header,
+  .block--divider--list,
+  .block--prose,
+  .bio-md--intro,
+  .bio-layout__aside .bio-md--aside,
+  .bio-layout__links__list,
+  .block--image-row__header,
+  .block--hero__header,
+  .block--cv-section__body {
+    font-size: 0.85em;
+  }
 }
 
 .cas-doc__body {

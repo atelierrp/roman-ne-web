@@ -1,37 +1,49 @@
 ---
-title: "Roman Ne — CAS Research on Temporary Listening Spaces"
-description: "CAS research on temporary listening spaces — Zurich University of the Arts ZHdK."
-ogTitle: "CAS Research on Temporary Listening Spaces"
-ogDescription: "Artistic research on temporary listening environments within the CAS Arts and International Cooperation programme at ZHdK."
-heading: "CAS Research on Temporary Listening Spaces"
+title: "Roman Ne — Research on Listening Spaces"
+description: "Ongoing artistic research into listening spaces, 2026–2027."
+ogTitle: "Research on Listening Spaces"
+ogDescription: "Ongoing artistic research into listening spaces within the CAS Arts and International Cooperation programme at ZHdK."
+heading: "Research on Listening Spaces"
 ---
 
-This artistic research is being developed within the [CAS Arts and International Cooperation](https://www.zhdk.ch/en/continuingeducation/arts-and-education-525/cas-arts-and-international-cooperation) programme at [Zurich University of the Arts ZHdK](https://www.zhdk.ch/en), which focuses on artistic work in fragile contexts, social transformation and peacebuilding.
+*Ongoing artistic research, 2026–2027*  
+Roman Ne
 
-The project explores the creation of temporary listening spaces that people can enter, inhabit and leave. Through sound, silence and minimal spoken guidance, listeners' attention is directed between the body, the surrounding space and listening itself.
+Developed within the CAS Arts and International Cooperation programme at Zurich University of the Arts (ZHdK). The programme examines the potential and limitations of artistic work in fragile contexts and processes of social transformation and peacebuilding.
 
-The research asks whether such a space could be meaningful when attention is shaped by stress, uncertainty, disruption or absence.
+The research investigates listening environments that people can enter, inhabit and leave freely. Through sound and a minimal sequence of spoken words, listeners’ attention is guided between the body, the surrounding space and listening itself.
 
-Visitors may sit or lie down, keep their eyes open or close them, fall asleep, and remain for as long as they choose. The space can be inhabited individually or collectively. People may enter and leave at any point without needing to complete a sequence. Participation remains voluntary.
+It asks whether such a space could offer a temporary sense of ease when stress, uncertainty or absence are experienced through bodily tension, repetitive thought or narrowed attention. This is an aim of the research rather than a promised outcome, and each person may experience the space differently.
 
-The space is intended to offer a temporary sense of rest, ease or orientation. These are aims of the research rather than promised outcomes, and each person may experience the space differently.
+Participants may sit or lie down, keep their eyes open or closed, and enter or leave at any point. The work explores how a carefully composed listening environment can accommodate different forms and durations of participation.
 
 ## Background
 
-The research grows out of Hardcore Yoga Nidra (HCYN), an artistic practice developed through installations and listening sessions in different social and spatial contexts, particularly in Switzerland and Thailand.
+The research grows out of an artistic practice developed through installations and listening sessions in different social and spatial contexts, particularly in Switzerland and Thailand.
 
-A point of departure for the present research was a series of sessions held in Yerevan and attended by people displaced from Nagorno-Karabakh alongside other participants. These sessions raised questions about how HCYN might be situated in contexts shaped by displacement, but were not specifically adapted interventions.
+An important point of departure was a series of sessions held in Yerevan and attended by people displaced from Nagorno-Karabakh alongside other participants. These sessions offered an initial experience of presenting the work in a context shaped by displacement, but they were not specifically adapted interventions.
 
-## Consultants
-
-Sandeep Kumar Verma  
-advises on yoga nidra, meditation, guided attention, secular adaptation and the boundaries between artistic, contemplative and therapeutic practices.
-
-Gurgen Baghdasaryan  
-advises on displacement in the Armenian context, including lived realities, community relationships, appropriate language and conditions for responsible engagement.
+The current research asks what would need to be understood, changed or developed before the work could responsibly enter another cultural context or a setting involving people experiencing displacement or prolonged instability.
 
 ## Current stage
 
-I am currently seeking critical feedback, advice on safeguarding and cultural assumptions, and conversations with organizations or trusted community intermediaries. At this stage, I am seeking dialogue rather than immediate access to a community.
+The research is currently focused on consultations with practitioners and organisations, artistic development, and initial public experiments in Northern Thailand.
 
-Full working research proposal
+I am seeking critical feedback on cultural assumptions, safeguarding, and the potential relevance of listening spaces in contexts affected by displacement or prolonged instability.
+
+At this stage, the aim is to establish dialogue and contextual understanding rather than immediate access to communities.
+
+## Consultants
+
+Sandeep Kumar Verma — Yoga nidra, meditation, guided attention, and secular adaptation.
+
+Gurgen Baghdasaryan — Displacement, community relationships, and cultural context in Armenia.
+
+Mintralux “Miko” Danklang — Psychology, sound healing, and community engagement along the Thailand–Myanmar border.
+
+## Full working proposal
+
+<a class="external-link--arrow" href="#">See full proposal</a>
+
+**Contact**  
+[contact@roman-ne.com](mailto:contact@roman-ne.com)

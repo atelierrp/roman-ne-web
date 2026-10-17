@@ -31,7 +31,7 @@ export const works = [
       {
         type: "external",
         label: "listen",
-        href: "https://fiordmoss.bandcamp.com/album/kingdom-come",
+        href: "https://open.spotify.com/artist/2gSqTNBxzV3hz7AGYkhU2s",
       },
     ],
   },

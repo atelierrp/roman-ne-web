@@ -17,7 +17,7 @@ const bio = defineCollection({
   }),
 });
 
-/** Hidden research document (`/cas-research`) — markdown body in `src/content/cas-research/`. */
+/** Hidden research document (`/research-listening-spaces`) — markdown body in `src/content/cas-research/`. */
 const casResearch = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/cas-research" }),
   schema: z.object({
