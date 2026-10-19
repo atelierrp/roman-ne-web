@@ -5,7 +5,7 @@ imageSrc: "/images/roman-ne-bio.jpg"
 imageAlt: "Atelier Zurich"
 ---
 
-Ne develops Hardcore Yoga Nidra (HCYN), using yoga nidra as an artistic medium. The work takes the form of live performances and sound installations. Body scans map participants onto the work, while walls of sound introduce a shared silence. His current research at ZHdK investigates listening environments and their potential relevance in contexts affected by displacement and prolonged instability.
+Ne develops Hardcore Yoga Nidra (HCYN), using yoga nidra as an artistic medium. The work takes the form of live performances and sound installations. His current research at ZHdK investigates listening environments and their potential relevance in contexts affected by displacement and prolonged instability.
 
 In 2026, he founded Adjustments to Nothing Verein, a Swiss association dedicated to artistic explorations of memory and impermanence. Through the association, he released Adjustments to Nothing mobile app.
 
