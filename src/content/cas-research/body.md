@@ -27,7 +27,7 @@ The current research asks what would need to be understood, changed or developed
 
 ## Current stage
 
-The research is currently focused on consultations with practitioners and organisations and artistic development.
+The research is currently focused on consultations and contextual research in Northern Thailand.
 
 I am seeking critical feedback on cultural assumptions, safeguarding, and the potential relevance of listening spaces in contexts affected by displacement or prolonged instability.
 
